@@ -6,13 +6,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..900&display=swap">
 <link rel="stylesheet" href="styles.css">
-</head><body>
+<link rel="stylesheet" href="ui.css">
+</head><body class="has-rail">
 <a class="skip" href="#main">Skip to content</a>
-<header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a>
-<nav aria-label="Sections">
-<a href="index.html">Home</a><a href="getting-started.html">Get started</a><a href="foundations.html">Foundations</a><a href="components.html">Components</a><a href="typography.html">Typography</a>
+<nav class="rail" aria-label="Site navigation">
+<div class="fab-placeholder"><button class="fab small" aria-label="Docs home" onclick="location.href='index.html'">＋</button></div>
+<a href="index.html"><span class="ic">🏠</span><span class="lbl">Home</span></a>
+<a href="getting-started.html"><span class="ic">🚀</span><span class="lbl">Get started</span></a>
+<a href="foundations.html"><span class="ic">🎨</span><span class="lbl">Foundations</span></a>
+<a href="components.html"><span class="ic">🧩</span><span class="lbl">Components</span></a>
+<a href="typography.html" aria-current="page"><span class="ic">🔤</span><span class="lbl">Typography</span></a>
 </nav>
-</header><main id="main">
+<header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a></header>><main id="main">
 <h1>Google Sans Flex</h1>
 <p class="lead">The typeface of Material 3 Expressive. Google Sans went open-source in 2025 as <strong>Google Sans Flex</strong> — a variable font now served on Google Fonts under the OFL license. This site itself uses it; here is everything we know, with values verified against the Google Fonts CSS API.</p>
 
@@ -20,7 +25,8 @@
 <p>Google Sans descends from <em>Product Sans</em> (2015), the geometric typeface built from the redesigned Google logo to unify hundreds of product lockups. A decade of iteration on Pixel phones and Google apps culminated in Google Sans Flex, the open-source variable-font release — the letterforms behind Material 3 Expressive’s expressive typography. <a href="https://design.google/library/google-sans-flex-font">Google Design: Making Google Sans Flex</a></p>
 <p>Get it: <a href="https://fonts.google.com/specimen/Google+Sans+Flex">fonts.google.com/specimen/Google+Sans+Flex</a> (OFL).</p>
 
-<h2 id="axes">Axes — verified</h2>
+<h2
+ id="axes">Axes — verified</h2>
 <p>Queried via the Google Fonts CSS API, Google Sans Flex is served in the <strong>normal</strong> style with two axes:</p>
 <table>
 <tr><th>Axis</th><th>Range</th><th>CSS property</th></tr>
@@ -41,7 +47,8 @@ https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..
 <tr><td>Emphasized titles, active nav</td><td><strong>600</strong></td><td>The “Expressive” headline voice — strong without shouting.</td></tr>
 <tr><td>Large display &lt; 45px</td><td><strong>700</strong></td><td>Pair with tighter letter-spacing (-0.5%).</td></tr>
 <tr><td>Hero display ≥ 45px</td><td><strong>800–900</strong></td><td>Let <code>opsz</code> refine the details; avoid 900 under 20px.</td></tr>
-<tr><td>Thin 100–300</td><td>display only</td><td>Decorative, large sizes only — fails contrast at text sizes.</td></tr>
+<tr><td>Thin 100–300
+</td><td>display only</td><td>Decorative, large sizes only — fails contrast at text sizes.</td></tr>
 </table>
 <p>Combo tips:</p>
 <ul>
@@ -81,7 +88,8 @@ import '@fontsource-variable/google-sans-flex';   // wght axis, self-hosted
 
 // font-family is 'Google Sans Flex Variable'
 body { font-family: 'Google Sans Flex Variable', sans-serif; }</code></pre>
-<h3>2. Manual woff2 + @font-face</h3>
+<h
+3>2. Manual woff2 + @font-face</h3>
 <p>Download the woff2 subsets from <a href="https://fonts.google.com/specimen/Google+Sans+Flex">Google Fonts</a> (the CSS API response lists the <code>unicode-range</code> subset URLs), then:</p>
 <pre><code>@font-face {
   font-family: 'Google Sans Flex';
@@ -115,6 +123,8 @@ body { font-family: 'Google Sans Flex Variable', sans-serif; }</code></pre>
 }
 /* emphasized pairs (wght 600–700 display variants) are a roadmap item */</code></pre>
 </main>
-<footer><p>A community port of Material 3 Expressive for the web — exact spec values only.</p>
+<footer><p>A community port of Material 3 Expressive for the web — exact spec va
+lues only.</p>
 <p><a href="https://github.com/lobsterbs/m3-expressive-web">GitHub</a><a href="https://fonts.google.com/specimen/Google+Sans+Flex">Google Sans Flex</a><a href="https://m3.material.io">Material 3 spec</a></p>
-</footer><script src="main.js"></script></body></html>
+</footer><script src="main.js"></script>
+<script src="ui.js"></script></body></html>

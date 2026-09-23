@@ -5,15 +5,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..900&display=swap">
 <link rel="stylesheet" href="styles.css">
-<style>.brand{color:inherit}</style></head><body>
+<link rel="stylesheet" href="ui.css">
+<style>.brand{color:inherit}</style></head><body class="has-rail">
 <a class="skip" href="#main">Skip to content</a>
-<header class="topbar"><a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="270" height="40" viewBox="0 0 270 40" role="img" aria-label="m3-expressive-web"><path d="M8 20c0-6.6 5.4-12 12-12s12 5.4 12 12-5.4 12-12 12S8 26.6 8 20z" fill="#6750A4"/><path d="M50 8h20v24H50z" rx="4" fill="#EADDFF"/><rect x="50" y="8" width="20" height="24" rx="4" fill="#7D5260"/><path d="M96 8c4 0 6 2 8 4s-4 2-8 6-8 2-8-4 4-6 8-6z" fill="#6750A4" opacity=".7"/><path d="M92 20c0-5 3-9 8-9s8 4 8 9-3 9-8 9-8-4-8-9z" fill="none" stroke="#6750A4" stroke-width="2"/><circle cx="126" cy="20" r="12" fill="#CCC2DC"/><text x="150" y="26" font-family="Roboto,sans-serif" font-size="16" font-weight="500" fill="currentColor">m3-expressive-web</text></svg></a>
-<nav aria-label="Sections">
-<a href="index.html">Home</a><a href="getting-started.html">Get started</a><a href="foundations.html">Foundations</a><a href="components.html">Components</a><a href="typography.html">Typography</a>
-</nav></header><main id="main"><h1>Foundations</h1>
+<nav class="rail" aria-label="Site navigation">
+<div class="fab-placeholder"><button class="fab small" aria-label="Docs home" onclick="location.href='index.html'">＋</button></div>
+<a href="index.html"><span class="ic">🏠</span><span class="lbl">Home</span></a>
+<a href="getting-started.html"><span class="ic">🚀</span><span class="lbl">Get started</span></a>
+<a href="foundations.html" aria-current="page"><span class="ic">🎨</span><span class="lbl">Foundations</span></a>
+<a href="components.html"><span class="ic">🧩</span><span class="lbl">Components</span></a>
+<a href="typography.html"><span class="ic">🔤</span><span class="lbl">Typography</span></a>
+</nav>
+<header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a></header>><main id="main"><h1>Foundations</h1>
 <p class="lead">Every value here is canonical — sourced from the M3 spec and the MDC-Android token files that share the Expressive motion scheme.</p>
 <h2 id="color">Color</h2>
-<p>M3 uses color <em>roles</em>, not fixed colors: primary/secondary/tertiary/error plus neutral and neutral-variant, each with container pairs, and surface/on-surface roles. This port exposes them as <code>--md-sys-*</code> custom properties (light + dark via <code>prefers-color-scheme</code>). Components consume only roles, so overriding one variable rethemes everything. <a href="https://m3.material.io/styles/color/roles">Spec: color roles</a>.</p>
+<p>M3 uses color <em>roles</em>, not fixed colors: primary/secondary
+/tertiary/error plus neutral and neutral-variant, each with container pairs, and surface/on-surface roles. This port exposes them as <code>--md-sys-*</code> custom properties (light + dark via <code>prefers-color-scheme</code>). Components consume only roles, so overriding one variable rethemes everything. <a href="https://m3.material.io/styles/color/roles">Spec: color roles</a>.</p>
 <h2 id="typography">Typography</h2>
 <p>The face for Material 3 Expressive is <strong>Google Sans Flex</strong> (open-sourced 2025) — full guide: <a href="typography.html">Google Sans Flex: axes, weight combos, self-hosting</a>.</p>
 <table><tr><th>Scale</th><th>Sizes</th></tr>
@@ -34,7 +41,8 @@
 <p><a href="https://m3.material.io/styles/shape/shape-scale-tokens">Spec: shape scale</a></p>
 <h2 id="motion">Motion — the Expressive spring scheme</h2>
 <p>Expressive replaces easing curves with <strong>spring physics</strong>. Canonical constants (damping / stiffness), identical in MDC-Android <code>tokens.xml</code> and Compose <code>MotionScheme.expressive()</code>:</p>
-<table><tr><th>Token</th><th>Damping</th><th>Stiffness</th><th>~Settle</th></tr>
+<table><t
+r><th>Token</th><th>Damping</th><th>Stiffness</th><th>~Settle</th></tr>
 <tr><td>fast-spatial</td><td>0.90</td><td>1400</td><td>0.233s</td></tr>
 <tr><td>fast-effects</td><td>1.00</td><td>3800</td><td>0.167s</td></tr>
 <tr><td>default-spatial</td><td>0.90</td><td>700</td><td>0.317s</td></tr>
@@ -51,9 +59,11 @@
 <table><tr><th>State</th><th>Opacity</th></tr><tr><td>Hover</td><td>8%</td></tr><tr><td>Focus</td><td>10%</td></tr><tr><td>Pressed</td><td>10%</td></tr><tr><td>Dragged</td><td>16%</td></tr><tr><td>Hover + focus</td><td>12%</td></tr></table>
 <p><a href="https://m3.material.io/foundations/interaction/states/state-layers">Spec: state layers</a></p>
 <h2 id="icons">Icons</h2>
-<p>M3 pairs filled and outlined icon families. Use Material Symbols with the M3 defaults (24dp, optical sizing on). <a href="https://m3.material.io/styles/icons/overview">Spec: icons</a></p>
+<p>M3 pairs fill
+ed and outlined icon families. Use Material Symbols with the M3 defaults (24dp, optical sizing on). <a href="https://m3.material.io/styles/icons/overview">Spec: icons</a></p>
 <h2 id="theming">Theming / configuration</h2>
 <p>Two tiers: <code>--md-sys-*</code> (system, role level) and <code>--md-comp-*</code> (component level, mapped from sys). Configure a component by overriding its comp tokens; retheme an app by overriding sys tokens. See <a href="getting-started.html">Get started</a>.</p></main>
 <footer><p>A community port of Material 3 Expressive for the web — exact spec values only.</p>
 <p><a href="https://github.com/lobsterbs/m3-expressive-web">GitHub</a><a href="https://m3.material.io">Material 3 spec</a><a href="https://github.com/material-components/material-components-android/blob/master/docs/theming/Motion.md">MDC-Android motion tokens</a></p>
-</footer><script src="main.js"></script></body></html>
+</footer><script src="main.js"></script>
+<script src="ui.js"></script></body></html>

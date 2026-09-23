@@ -4,12 +4,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..900&display=swap">
-<link rel="stylesheet" href="styles.css"></head><body>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="ui.css"></head><body class="has-rail">
 <a class="skip" href="#main">Skip to content</a>
-<header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a>
-<nav aria-label="Sections">
-<a href="index.html">Home</a><a href="getting-started.html">Get started</a><a href="foundations.html">Foundations</a><a href="components.html" aria-current="page">Components</a>
-</nav></header><main id="main"><section class="hero">
+<nav class="rail" aria-label="Site navigation">
+<div class="fab-placeholder"><button class="fab small" aria-label="Docs home" onclick="location.href='index.html'">＋</button></div>
+<a href="index.html" aria-current="page"><span class="ic">🏠</span><span class="lbl">Home</span></a>
+<a href="getting-started.html"><span class="ic">🚀</span><span class="lbl">Get started</span></a>
+<a href="foundations.html"><span class="ic">🎨</span><span class="lbl">Foundations</span></a>
+<a href="components.html"><span class="ic">🧩</span><span class="lbl">Components</span></a>
+<a href="typography.html"><span class="ic">🔤</span><span class="lbl">Typography</span></a>
+</nav>
+<header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a></header>><main id="main"><section class="hero">
 <p class="eyebrow">Community port · exact spec values</p>
 <h1>Material 3 Expressive, finally on the web.</h1>
 <p class="lead">Google never shipped the Expressive update to Material Web Components. This port brings the new motion scheme, shape morphing, and expressive components to the web — with <strong>exact values from the canonical token sources</strong>, never invented ones.</p>
@@ -19,7 +25,8 @@
 <img src="https://img.shields.io/github/last-commit/lobsterbs/m3-expressive-web?style=flat-square" alt="Last commit">
 <img src="https://img.shields.io/badge/spec-exact%20values-6750A4?style=flat-square" alt="Exact spec values">
 </div>
-<p><button class="m3" onclick="location.href='getting-started.html'">Get started</button></p>
+<p><button class="m3" onclick="location.href='getting-started.html'">Get st
+arted</button></p>
 </section>
 <h2>Foundations</h2>
 <div class="grid">
@@ -42,7 +49,8 @@
 <span class="pill ported">ported</span></div>
 <div class="comp" data-search>
 <h3><a href="components.html#fab">FAB (floating action button)</a></h3>
-<p>A high-emphasis action button in three sizes (small/default/large) plus an extended variant.</p>
+<p>A high-emphasis action button in three sizes (smal
+l/default/large) plus an extended variant.</p>
 <span class="pill ported">ported</span></div>
 <div class="comp" data-search>
 <h3><a href="components.html#fab-menu">FAB menu</a></h3>
@@ -74,7 +82,8 @@
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
 <h3><a href="components.html#snackbars">Snackbars</a></h3>
-<p>Transient bottom messages with an optional action and dismiss icon; the mobile pattern for lightweight feedback.</p>
+<p>Transient bottom messages with an optional ac
+tion and dismiss icon; the mobile pattern for lightweight feedback.</p>
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
 <h3><a href="components.html#banner">Banner</a></h3>
@@ -106,7 +115,8 @@
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
 <h3><a href="components.html#list">List</a></h3>
-<p>Rows of related content: one-to-three lines with leading/trailing content, avatars, and expressive leading icons.</p>
+<p>Rows of related content: one-to-three lines with leading/trailing co
+ntent, avatars, and expressive leading icons.</p>
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
 <h3><a href="components.html#top-app-bar">Top app bar</a></h3>
@@ -138,7 +148,8 @@
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
 <h3><a href="components.html#menus">Menus (dropdown / exposed)</a></h3>
-<p>Lists of menu items in a surface; Expressive adds exposed-dropdown menus (dock to a field) and expressive item morphing.</p>
+<p>Lists of menu items in a surf
+ace; Expressive adds exposed-dropdown menus (dock to a field) and expressive item morphing.</p>
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
 <h3><a href="components.html#tooltips">Tooltips</a></h3>
@@ -166,4 +177,5 @@
 <span class="pill ported">ported</span></div></div></main>
 <footer><p>A community port of Material 3 Expressive for the web — exact spec values only.</p>
 <p><a href="https://github.com/lobsterbs/m3-expressive-web">GitHub</a><a href="https://m3.material.io">Material 3 spec</a></p>
-</footer><script src="main.js"></script></body></html>
+</footer><script src="main.js"></script>
+<script src="ui.js"></script></body></html>
