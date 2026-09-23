@@ -43,10 +43,9 @@ prefers-color-scheme</code>). Components consume only roles, so overriding one v
 </div>
 <p><a href="https://m3.material.io/styles/shape/shape-scale-tokens">Spec: shape scale</a></p>
 <h2 id="motion">Motion — the Expressive spring scheme</h2>
-<p>Expressive replaces easing curves with <strong>spring physics</strong>. Can
-onical constants (damping / stiffness), identical in MDC-Android <code>tokens.xml</code> and Compose <code>MotionScheme.expressive()</code>:</p>
-<table><t
-r><th>Token</th><th>Damping</th><th>Stiffness</th><th>~Settle</th></tr>
+<p>Expressive replaces easing curves with <strong>spring physics</strong>. Canonical constants (damping / stiffness), identical in MDC-Android <code>tokens.xml</code> and Compose <code>MotionScheme.expressive()</code>:</p>
+<table><tr>
+<th>Token</th><th>Damping</th><th>Stiffness</th><th>~Settle</th></tr>
 <tr><td>fast-spatial</td><td>0.90</td><td>1400</td><td>0.233s</td></tr>
 <tr><td>fast-effects</td><td>1.00</td><td>3800</td><td
 >0.167s</td></tr>
@@ -66,9 +65,9 @@ table>
 <p><a href="https://m3.material.io/foundations/interaction/states/state-layers">Spec: state layers</a></p>
 <h2 id="icons">Icons</h2>
 <p>M3 pairs fill
+
 ed and outlined icon families. Use Material Symbols with the M3 defaults (24dp, optical sizing on). <a href="https://m3.material.io/styles/icons/overview">Spec: icons</a></p>
-<h2 id="theming">Themi
-ng / configuration</h2>
+<h2 id="theming">Theming / configuration</h2>
 <p>Two tiers: <code>--md-sys-*</code> (system, role level) and <code>--md-comp-*</code> (component level, mapped from sys). Configure a component by overriding its comp tokens; retheme an app by overriding sys tokens. See <a href="getting-started.html">Get started</a>.</p><section class="comp" id="icons" data-search>
 <h3>Icons (Material Symbols) <a class="pill ported" href="#icons">in use</a></h3>
 <p><strong>About.</strong> Material Symbols is the Material 3 icon system — a variable font where every icon is a glyph with four variable axes. This site uses it for every icon on every page (no emoji anywhere).</p>

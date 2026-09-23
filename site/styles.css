@@ -19,7 +19,8 @@
 --md-sys-corner-xs:4px;--md-sys-corner-sm:8px;--md-sys-corner-md:12px;--md-sys-corner-lg:16px;--md-sys-corner-xl:28px;--md-sys-corner-xxl:48px;
 /* elevation 0-5 */
 --md-sys-elevation-0:none;--md-sys-elevation-1:0 1px 2px rgba(0,0,0,.3),0 1px 3px 1px rgba(0,0,0,.15);--md-sys-elevation-2:0 1px 2px rgba(0,0,0,.3),0 2px 6px 2px rgba(0,0,0,.15);--md-sys-elevation-3:0 4px 8px 3px rgba(0,0,0,.15),0 1px 3px rgba(0,0,0,.3);--md-sys-elevation-4:0 6px 10px 4px rgba(0,0,0,.15),0 2px 6px rgba(0,0,0,.3);--md-sys-elevation-5:0 8px 12px 6px rgba(0,0,0,.15),0 4px 4px rgba(0,0,0,.3);
-/* type scale (baseline M3) */
+/*
+ type scale (baseline M3) */
 --md-sys-type-display-l:57px;--md-sys-type-display-m:45px;--md-sys-type-display-s:36px;
 --md-sys-type-headline-l:32px;--md-sys-type-headline-m:28px;--md-sys-type-headline-s:24px;
 --md-sys-type-title-l:22px;--md-sys-type-title-m:16px;--md-sys-type-title-s:14px;
