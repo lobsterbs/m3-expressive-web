@@ -1,16 +1,25 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Components — m3-expressive-web</title><meta name="description" content="Reference for every Material 3 component: about, when to use, usage, configuration tokens, and sources.">
+<title>Components — m3-expressive-web</title>
+<meta name="description" content="Live demos and code for every Material 3 component, rendered with exact spec values.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..900&display=swap">
-<link rel="stylesheet" href="styles.css"></head><body>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="ui.css">
+</head><body class="has-rail">
 <a class="skip" href="#main">Skip to content</a>
-<header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a>
-<nav aria-label="Sections">
-<a href="index.html">Home</a><a href="getting-started.html">Get started</a><a href="foundations.html">Foundations</a><a href="components.html" aria-current="page">Components</a>
-</nav></header><main id="main"><h1>Components</h1>
-<p class="lead">Every Material 3 component: what it is, when to use it, how to use it with this library, and how to configure it. Ported components are marked <span class="pill ported">ported</span>; the rest are documented against the spec and on the roadmap — their code snippets show the planned custom elements.</p>
+<nav class="rail" aria-label="Site navigation">
+<div class="fab-placeholder"><button class="fab small" aria-label="Docs home" onclick="location.href='index.html'">＋</button></div>
+<a href="index.html"><span class="ic">🏠</span><span class="lbl">Home</span></a>
+<a href="getting-started.html"><span class="ic">🚀</span><span class="lbl">Get started</span></a>
+<a href="foundations.html"><span class="ic">🎨</span><span class="lbl">Foundations</span></a>
+<a href="components.html" aria-current="page"><span class="ic">🧩</span><span class="lbl">Components</span></a>
+<a href="typography.html"><span class="ic">🔤</span><span class="lbl">Typography</span></a>
+</nav>
+<header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a></header>
+<main id="main"><h1>Components</h1>
+<p class="lead">Every Material 3 component — each with <strong>about</strong>, <strong>when to use</strong>, a <strong>live demo</strong> (rendered with exact spec values by this site), a <strong>code block</strong>, <strong>configuration tokens</strong>, and <strong>sources</strong>.</p>
 <p><label><input class="search" type="search" placeholder="Filter components…" aria-label="Filter components"></label></p>
 <nav class="toc" aria-label="Categories">
 <a href="#cat-actions">Actions</a>
@@ -21,9 +30,10 @@
 <a href="#cat-text-input">Text input</a>
 </nav><h2 id="cat-actions">Actions</h2><section class="comp" id="common-buttons" data-search>
 <h3>Common buttons <a class="pill ported" href="#common-buttons">ported</a></h3>
-<p><strong>About.</strong> The primary M3 action component: five variants — filled, filled tonal, outlined, elevated, and text — with expressive state layers, ripple, and FAST-token spring motion on press.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>One primary action per view (filled)</li><li>Secondary/less emphasis: tonal, outlined, text</li><li>Destructive actions get confirmation via dialog</li></ul>
+<p><strong>About.</strong> Five variants — filled, filled tonal, outlined, elevated, text — with expressive state layers, ripple, and FAST-token spring motion on press.</p>
+<p><strong>When to use.</strong> One primary action per view (filled) · Secondary emphasis: tonal, outlined, text</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><button class="btn">Filled</button><button class="btn tonal">Tonal</button><button class="btn outlined">Outlined</button><button class="btn elevated">Elevated</button><button class="btn text">Text</button><button class="btn" disabled>Disabled</button></div>
 <p><strong>How to use.</strong></p>
 <pre><code>&lt;md-filled-button>Save&lt;/md-filled-button>
 &lt;md-tonal-button>Open&lt;/md-tonal-button>
@@ -31,37 +41,40 @@
 &lt;md-elevated-button>Continue&lt;/md-elevated-button>
 &lt;md-text-button>Learn more&lt;/md-text-button></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-filled-button-container-color</code></td><td>Container fill</td></tr><tr><td><code>--md-comp-filled-button-label-text-color</code></td><td>Label color</td></tr><tr><td><code>--md-comp-button-container-shape</code></td><td>Corner scale (full by default)</td></tr><tr><td><code>--md-sys-motion-fast-spatial</code></td><td>Press/ripple spring</td></tr></table>
+<table><tr><td><code>--md-comp-filled-button-container-color</code></td><td>Container fill</td></tr><tr><td><code>--md-comp-button-container-shape</code></td><td>Full (pill) by default</td></tr><tr><td><code>--md-sys-motion-fast-spatial</code></td><td>Press/ripple spring</td></tr></table>
 <p><strong>Where to get.</strong> Built into this library — see <a href="https://github.com/lobsterbs/m3-expressive-web/tree/main/src/components">src/components</a>.</p>
 </section><section class="comp" id="button-group" data-search>
 <h3>Button group <a class="pill ported" href="#button-group">ported</a></h3>
-<p><strong>About.</strong> A connected row of related buttons (segments) that can act as a toggle group or split actions. Expressive-new component; segments share the FAST spatial spring.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Connected toggle selections (like segmented buttons)</li><li>Groups of related quick actions</li></ul>
+<p><strong>About.</strong> A connected row of related buttons acting as a toggle group or split actions.</p>
+<p><strong>When to use.</strong> Connected toggle selections · Groups of related quick actions</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><div class="btngroup"><button data-single aria-pressed="true">Day</button><button data-single aria-pressed="false">Week</button><button data-single aria-pressed="false">Month</button></div></div>
 <p><strong>How to use.</strong></p>
 <pre><code>&lt;md-button-group>
   &lt;md-button-group-segment selected>Day&lt;/md-button-group-segment>
   &lt;md-button-group-segment>Week&lt;/md-button-group-segment>
 &lt;/md-button-group></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-button-group-container-shape</code></td><td>Outer group shape (full)</td></tr><tr><td><code>--md-comp-button-group-segment-container-color</code></td><td>Segment fill (selected/unselected)</td></tr></table>
+<table><tr><td><code>--md-comp-button-group-container-shape</code></td><td>Outer group shape (full)</td></tr><tr><td><code>--md-comp-button-group-segment-container-color</code></td><td>Segment fill</td></tr></table>
 <p><strong>Where to get.</strong> Built into this library — see <a href="https://github.com/lobsterbs/m3-expressive-web/tree/main/src/components">src/components</a>.</p>
 </section><section class="comp" id="fab" data-search>
 <h3>FAB (floating action button) <a class="pill ported" href="#fab">ported</a></h3>
-<p><strong>About.</strong> A high-emphasis action button in three sizes (small/default/large) plus an extended variant. Expressive adds optional shape morphing (e.g. circle → soft-burst on press) and a loading state.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>The single most important action of a screen</li><li>Compose/creation actions</li></ul>
+<p><strong>About.</strong> Three sizes plus extended variant; Expressive adds shape morphing (circle → rounded square on press) and a loading state.</p>
+<p><strong>When to use.</strong> The single most important action of a screen · Compose/creation actions</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><button class="fab" aria-label="Compose">＋</button><button class="fab small">＋</button><button class="fab large">＋</button><button class="fab extended"><span>＋</span> Create</button></div>
 <p><strong>How to use.</strong></p>
 <pre><code>&lt;md-fab icon="add" label="Compose">&lt;/md-fab>
 &lt;md-fab extended label="Create">…&lt;/md-fab></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-fab-container-color</code></td><td>FAB fill</td></tr><tr><td><code>--md-comp-fab-container-shape</code></td><td>Shape (circle / morph target)</td></tr><tr><td><code>--md-comp-fab-large-container-height</code></td><td>64px large / 56 default / 40 small</td></tr></table>
+<table><tr><td><code>--md-comp-fab-container-color</code></td><td>FAB fill</td></tr><tr><td><code>--md-comp-fab-container-shape</code></td><td>Shape / morph target</td></tr><tr><td><code>--md-comp-fab-large-container-height</code></td><td>64px large / 56 default / 40 small</td></tr></table>
 <p><strong>Where to get.</strong> Built into this library — see <a href="https://github.com/lobsterbs/m3-expressive-web/tree/main/src/components">src/components</a>.</p>
 </section><section class="comp" id="fab-menu" data-search>
 <h3>FAB menu <a class="pill ported" href="#fab-menu">ported</a></h3>
-<p><strong>About.</strong> Expressive-new: a FAB that expands into a radial or stacked menu of related quick actions, each entering with staggered fast-spatial springs.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Multiple quick actions anchored to one FAB</li><li>Speed dials</li></ul>
+<p><strong>About.</strong> Expressive-new: a FAB expanding into a stacked menu of quick actions with staggered fast-spatial springs.</p>
+<p><strong>When to use.</strong> Multiple quick actions anchored to one FAB · Speed dials</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo" style="min-height:170px;align-items:flex-end"><div class="fabmenu"><div class="menu"><button>📷 Add photo</button><button>📎 Add file</button><button>🎤 Record</button></div><button class="fab" aria-label="Menu">＋</button></div></div><p><small>Click the FAB — items enter with staggered fast-spatial springs.</small></p>
 <p><strong>How to use.</strong></p>
 <pre><code>&lt;md-fab-menu>
   &lt;md-fab-menu-item icon="photo">Add photo&lt;/md-fab-menu-item>
@@ -72,19 +85,22 @@
 <p><strong>Where to get.</strong> Built into this library — see <a href="https://github.com/lobsterbs/m3-expressive-web/tree/main/src/components">src/components</a>.</p>
 </section><section class="comp" id="icon-button" data-search>
 <h3>Icon buttons <a class="pill roadmap" href="#icon-button">roadmap</a></h3>
-<p><strong>About.</strong> Compact icon-only actions: standard, filled, and tonal variants plus toggle states. Expressive gives them a loading state and shape morphing.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Actions representable by a single icon in dense UIs</li><li>Toggleable icon actions</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Standard, filled, and tonal variants plus toggle states; Expressive adds loading and shape morphing.</p>
+<p><strong>When to use.</strong> Icon-representable actions in dense UIs · Toggleable icon actions</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><button class="iconbtn tip" data-tip="Standard" aria-label="favorite">♥</button><button class="iconbtn tonal tip" data-tip="Tonal" aria-label="settings">⚙</button><button class="iconbtn" aria-pressed="true" aria-label="selected">★</button></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-icon-button toggle>favorite&lt;/md-icon-button>
+&lt;md-tonal-icon-button>settings&lt;/md-tonal-icon-button></code></pre>
 <p><strong>How to configure.</strong></p>
 <table><tr><td><code>--md-comp-icon-button-container-shape</code></td><td>full</td></tr><tr><td><code>--md-comp-icon-button-state-layer-opacity</code></td><td>8/10/10/16% exact</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/icon-buttons/overview">icon-buttons/overview</a> · planned in this repo's roadmap.</p>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/icon-buttons/overview">icon-buttons/overview</a> · roadmap.</p>
 </section><section class="comp" id="split-button" data-search>
 <h3>Split button <a class="pill ported" href="#split-button">ported</a></h3>
-<p><strong>About.</strong> Expressive-new: a button with a primary action plus an attached dropdown chevron for alternative actions.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>One default action plus related variants (Save / Save as…)</li></ul>
+<p><strong>About.</strong> Expressive-new: primary action plus an attached dropdown chevron for alternatives; the arrow spins with the spring on open.</p>
+<p><strong>When to use.</strong> One default action plus variants (Save / Save as…)</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><span class="splitbtn" style="position:relative"><button>Save</button><button class="arrow" aria-label="More">⌄</button><span class="dd"><button>Save as draft</button><button>Save as copy</button></span></span></div>
 <p><strong>How to use.</strong></p>
 <pre><code>&lt;md-split-button>
   &lt;md-filled-button>Save&lt;/md-filled-button>
@@ -95,19 +111,24 @@
 <p><strong>Where to get.</strong> Built into this library — see <a href="https://github.com/lobsterbs/m3-expressive-web/tree/main/src/components">src/components</a>.</p>
 </section><section class="comp" id="menus" data-search>
 <h3>Menus (dropdown / exposed) <a class="pill roadmap" href="#menus">roadmap</a></h3>
-<p><strong>About.</strong> Lists of menu items in a surface; Expressive adds exposed-dropdown menus (dock to a field) and expressive item morphing.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Command lists from a button</li><li>Overflow actions</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Menu items in a surface; Expressive adds exposed-dropdown menus and item morphing.</p>
+<p><strong>When to use.</strong> Command lists from a button · Overflow actions</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><span class="splitbtn" style="position:relative"><button>Menu button</button><button class="arrow" aria-label="Open">⌄</button><span class="dd"><button>✂ Cut</button><button>📋 Copy</button><button>🗑 Delete</button></span></span></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-menu>
+  &lt;md-menu-item>Cut&lt;/md-menu-item>
+  &lt;md-menu-item>Copy&lt;/md-menu-item>
+&lt;/md-menu></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-menu-container-shape</code></td><td>4dp — Expressive TODO(spec)</td></tr><tr><td><code>--md-comp-menu-item-container-shape</code></td><td>full pill in Expressive</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/menus/overview">menus/overview</a> · planned in this repo's roadmap.</p>
+<table><tr><td><code>--md-comp-menu-container-shape</code></td><td>Expressive TODO(spec)</td></tr><tr><td><code>--md-comp-menu-item-container-shape</code></td><td>Full pill in Expressive</td></tr></table>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/menus/overview">menus/overview</a> · roadmap.</p>
 </section><section class="comp" id="toolbar" data-search>
 <h3>Toolbar <a class="pill ported" href="#toolbar">ported</a></h3>
-<p><strong>About.</strong> Expressive-new: a container for arranging related action items (buttons, icon buttons) with connected shape language.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Grouping several actions in one expressive surface</li></ul>
+<p><strong>About.</strong> Expressive-new: a container for arranging related action items with connected shape language.</p>
+<p><strong>When to use.</strong> Grouping several actions in one surface</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><div class="appbar-demo" style="max-width:none"><button class="iconbtn tip" data-tip="Toolbar">♥</button><button class="iconbtn">↗</button><button class="iconbtn">🗑</button><span style="flex:1"></span><button class="btn text">More</button></div></div>
 <p><strong>How to use.</strong></p>
 <pre><code>&lt;md-toolbar>
   &lt;md-icon-button>favorite&lt;/md-icon-button>
@@ -118,256 +139,314 @@
 <p><strong>Where to get.</strong> Built into this library — see <a href="https://github.com/lobsterbs/m3-expressive-web/tree/main/src/components">src/components</a>.</p>
 </section><h2 id="cat-selection">Selection</h2><section class="comp" id="segmented-button" data-search>
 <h3>Segmented buttons <a class="pill roadmap" href="#segmented-button">roadmap</a></h3>
-<p><strong>About.</strong> A row of connected segments for selecting one (or more) options from a compact set; the connected twin of button group.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Compact single/multi select of 2–5 options</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> A row of connected segments for selecting one or more options.</p>
+<p><strong>When to use.</strong> Compact single/multi select of 2–5 options</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><div class="btngroup"><button data-single aria-pressed="true">Day</button><button data-single aria-pressed="false">Week</button><button data-single aria-pressed="false">Month</button></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-segmented-button selected>Day&lt;/md-segmented-button>
+&lt;md-segmented-button>Week&lt;/md-segmented-button></code></pre>
 <p><strong>How to configure.</strong></p>
 <table><tr><td><code>--md-comp-segmented-button-container-shape</code></td><td>full</td></tr><tr><td><code>--md-comp-segmented-button-selected-container-color</code></td><td>Selected fill</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/segmented-buttons/overview">segmented-buttons/overview</a> · planned in this repo's roadmap.</p>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/segmented-buttons/overview">segmented-buttons/overview</a> · roadmap.</p>
 </section><section class="comp" id="chips" data-search>
 <h3>Chips (assist / filter / input) <a class="pill roadmap" href="#chips">roadmap</a></h3>
-<p><strong>About.</strong> Compact elements representing inputs, attributes, or actions: assist, filter, input (with suggestion), and (Expressive) elevated filter chips with dynamic height.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Filtering content (filter chips)</li><li>Suggested inputs (input chips)</li><li>Quick actions with details (assist chips)</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Assist, filter, and input chips; Expressive adds elevated filter chips with dynamic height.</p>
+<p><strong>When to use.</strong> Filtering content (filter chips) · Suggested inputs (input chips) · Quick actions (assist chips)</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><button class="chip assist">assist chip</button><button class="chip" aria-pressed="true">filter: active</button><button class="chip" aria-pressed="false">filter: idle</button><button class="chip elevated">elevated 8</button></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-filter-chip selected>Filter&lt;/md-filter-chip>
+&lt;md-assist-chip icon="event">Add to calendar&lt;/md-assist-chip></code></pre>
 <p><strong>How to configure.</strong></p>
 <table><tr><td><code>--md-comp-chip-container-shape</code></td><td>8dp corner</td></tr><tr><td><code>--md-comp-assist-chip-elevated-container-color</code></td><td>Elevated container</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/chips/overview">chips/overview</a> · planned in this repo's roadmap.</p>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/chips/overview">chips/overview</a> · roadmap.</p>
 </section><section class="comp" id="slider" data-search>
 <h3>Slider <a class="pill ported" href="#slider">ported</a></h3>
-<p><strong>About.</strong> Continuous or discrete selection on a track with handle, stop indicators, and value labels. Expressive adds drag morphing (handle grows on press).</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Volume/brightness-style continuous settings</li><li>Discrete value steps</li></ul>
+<p><strong>About.</strong> Continuous or discrete selection; Expressive adds drag morphing (thumb widens on press). Exact: 16dp track, 4dp×44dp thumb.</p>
+<p><strong>When to use.</strong> Continuous settings (volume, brightness) · Discrete value steps</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><input type="range" class="slider" min="0" max="100" value="40" aria-label="Demo slider"><output>40</output></div><p><small>Exact geometry: 16dp track, 4dp×44dp thumb (MDC-Android defaults); thumb widens on drag with the fast-spatial spring.</small></p>
 <p><strong>How to use.</strong></p>
 <pre><code>&lt;md-slider min="0" max="100" value="40">&lt;/md-slider></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-slider-active-track-color</code></td><td>Active track fill</td></tr><tr><td><code>--md-comp-slider-handle-shape</code></td><td>Morphs on drag (spring)</td></tr></table>
+<table><tr><td><code>--md-comp-slider-track-height</code></td><td>16dp exact</td></tr><tr><td><code>--md-comp-slider-thumb-width</code></td><td>4dp exact</td></tr><tr><td><code>--md-comp-slider-thumb-height</code></td><td>44dp exact</td></tr><tr><td><code>--md-comp-slider-label-behavior</code></td><td>floating</td></tr></table>
 <p><strong>Where to get.</strong> Built into this library — see <a href="https://github.com/lobsterbs/m3-expressive-web/tree/main/src/components">src/components</a>.</p>
 </section><section class="comp" id="switch" data-search>
 <h3>Switch <a class="pill roadmap" href="#switch">roadmap</a></h3>
-<p><strong>About.</strong> A binary toggle with thumb and track; Expressive adds icon morphs on the thumb between checked/unchecked states.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Binary settings toggles</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Binary toggle; Expressive adds thumb icon morphs between states.</p>
+<p><strong>When to use.</strong> Binary settings toggles</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><button class="switch" role="switch" aria-checked="true" aria-label="Setting on"></button><button class="switch" role="switch" aria-checked="false" aria-label="Setting off"></button></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-switch selected>&lt;/md-switch></code></pre>
 <p><strong>How to configure.</strong></p>
 <table><tr><td><code>--md-comp-switch-selected-track-color</code></td><td>Selected track</td></tr><tr><td><code>--md-comp-switch-handle-shape</code></td><td>full</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/switch/overview">switch/overview</a> · planned in this repo's roadmap.</p>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/switch/overview">switch/overview</a> · roadmap.</p>
 </section><section class="comp" id="date-pickers" data-search>
 <h3>Date & time pickers <a class="pill roadmap" href="#date-pickers">roadmap</a></h3>
 <p><strong>About.</strong> Calendar and clock selection surfaces in dialog or embedded form.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Scheduling and date/time entry</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>When to use.</strong> Scheduling and date/time entry</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><div class="datepick-demo"><strong>September 2026</strong><div class="grid7"><span class="day">S</span><span class="day">M</span><span class="day">T</span><span class="day">W</span><span class="day">T</span><span class="day">F</span><span class="day">S</span><span class="day">25</span><span class="day">26</span><span class="day">27</span><span class="day">28</span><span class="day">29</span><span class="day">30</span><span class="day">31</span><span class="day">1</span><span class="day">2</span><span class="day sel">3</span><span class="day today">23</span></div></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-datepicker value="2026-09-23">&lt;/md-datepicker></code></pre>
 <p><strong>How to configure.</strong></p>
 <table><tr><td><code>--md-comp-datepicker-dialog-container-shape</code></td><td>28dp</td></tr><tr><td><code>--md-comp-datepicker-selected-day-container-color</code></td><td>Primary selected day</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/date-pickers/overview">date-pickers/overview</a> · planned in this repo's roadmap.</p>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/date-pickers/overview">date-pickers/overview</a> · roadmap.</p>
 </section><h2 id="cat-containment">Containment</h2><section class="comp" id="cards" data-search>
 <h3>Cards <a class="pill roadmap" href="#cards">roadmap</a></h3>
-<p><strong>About.</strong> Elevated/filled/outlined containers for grouped content. Cards are interactive when they contain one primary action (whole-card state layer + ripple).</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Grouping related content</li><li>Mixed-height content (Expressive: dynamic shape morphing on interactions)</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Elevated/filled/outlined containers; interactive cards take a whole-card state layer + ripple.</p>
+<p><strong>When to use.</strong> Grouping related content · Mixed-height content</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><div class="card-demo"><div class="media"></div><h4>Filled card</h4><p>Supporting text.</p></div><div class="card-demo elevated"><div class="media"></div><h4>Elevated</h4><p>Level 1 shadow.</p></div><div class="card-demo outlined"><h4>Outlined</h4><p>1px outline.</p></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-filled-card>
+  &lt;h4>Title&lt;/h4>
+  &lt;p>Supporting text.&lt;/p>
+&lt;/md-filled-card></code></pre>
 <p><strong>How to configure.</strong></p>
 <table><tr><td><code>--md-comp-card-container-shape</code></td><td>12dp default</td></tr><tr><td><code>--md-comp-elevated-card-container-elevation</code></td><td>level 1</td></tr><tr><td><code>--md-comp-card-outlined-container-border</code></td><td>1px outline</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/cards/overview">cards/overview</a> · planned in this repo's roadmap.</p>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/cards/overview">cards/overview</a> · roadmap.</p>
 </section><section class="comp" id="bottom-sheet" data-search>
 <h3>Bottom sheet <a class="pill roadmap" href="#bottom-sheet">roadmap</a></h3>
-<p><strong>About.</strong> Anchored-bottom surface with three variants (modal, standard, expanded) using drag-to-resize gestures.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Task-flows from list/map items</li><li>Detail views on mobile</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Anchored-bottom surface (modal/standard/expanded) with drag-to-resize.</p>
+<p><strong>When to use.</strong> Task flows from list/map items · Detail views on mobile</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo" style="padding-bottom:0"><div class="sheet-demo"><div class="handle"></div><p style="margin:0;color:var(--md-sys-on-surface-variant)">Drag the handle to resize — modal bottom sheet with 28dp top corners.</p></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-bottom-sheet open>Sheet content&lt;/md-bottom-sheet></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-bottom-sheet-container-shape</code></td><td>28dp top</td></tr><tr><td><code>--md-comp-bottom-sheet-drag-handle-shape</code></td><td>Handle shape</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/bottom-sheets/overview">bottom-sheets/overview</a> · planned in this repo's roadmap.</p>
+<table><tr><td><code>--md-comp-bottom-sheet-container-shape</code></td><td>28dp top</td></tr><tr><td><code>--md-comp-bottom-sheet-drag-handle-shape</code></td><td>Handle</td></tr></table>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/bottom-sheets/overview">bottom-sheets/overview</a> · roadmap.</p>
 </section><section class="comp" id="carousel" data-search>
 <h3>Carousel <a class="pill roadmap" href="#carousel">roadmap</a></h3>
-<p><strong>About.</strong> Expressive hero component: a horizontal scroller with dynamic-width items, hero layouts (multi-browse, emphasized), and spring fling physics.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Rich horizontal browsing (media, products)</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Expressive hero: horizontal scroller with hero layouts (multi-browse, emphasized) and spring fling physics.</p>
+<p><strong>When to use.</strong> Rich horizontal browsing</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><div class="carousel-demo"><div>Large</div><div>Medium</div><div>Small</div><div>Large</div><div>Medium</div><div>Small</div></div></div><p><small>Scroll — multi-browse layout: at least one large, medium and small item visible (spec).</small></p>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-carousel layout="multi-browse">
+  &lt;md-carousel-item>…&lt;/md-carousel-item>
+&lt;/md-carousel></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-carousel-item-shape</code></td><td>Varies per layout strategy</td></tr><tr><td><code>--md-sys-motion-slow-spatial</code></td><td>Carousel spring — TODO(spec)</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/carousels/overview">carousels/overview</a> · planned in this repo's roadmap.</p>
+<table><tr><td><code>--md-comp-carousel-item-shape</code></td><td>Varies per layout strategy</td></tr><tr><td><code>--md-sys-motion-slow-spatial</code></td><td>Carousel spring TODO(spec)</td></tr></table>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/carousels/overview">carousels/overview</a> · roadmap.</p>
 </section><section class="comp" id="divider" data-search>
 <h3>Divider <a class="pill roadmap" href="#divider">roadmap</a></h3>
-<p><strong>About.</strong> A 1dp hairline separating grouped content; inset variants align with content padding.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Separating list groups or sections</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> A 1dp hairline separating grouped content; inset variants align with padding.</p>
+<p><strong>When to use.</strong> Separating list groups or sections</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo" style="flex-direction:column;align-items:stretch;max-width:360px"><p style="margin:0">Section one</p><hr class="divider"><p style="margin:0">Section two</p></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-divider inset>&lt;/md-divider></code></pre>
 <p><strong>How to configure.</strong></p>
 <table><tr><td><code>--md-comp-divider-color</code></td><td>outline-variant</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/dividers/overview">dividers/overview</a> · planned in this repo's roadmap.</p>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/dividers/overview">dividers/overview</a> · roadmap.</p>
 </section><section class="comp" id="list" data-search>
 <h3>List <a class="pill roadmap" href="#list">roadmap</a></h3>
-<p><strong>About.</strong> Rows of related content: one-to-three lines with leading/trailing content, avatars, and expressive leading icons.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Scrollable groups of text/content rows</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> One-to-three-line rows with leading/trailing content; expressive shapes for leading icons.</p>
+<p><strong>When to use.</strong> Scrollable groups of rows</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><div class="list-demo"><div class="li"><span class="av">A</span><div><strong>Ali Connors</strong><small>Secondary text · two-line list</small></div></div><hr class="divider"><div class="li"><span class="av">B</span><div><strong>Beka H</strong><small>Expressive lists use dynamic shape corners</small></div></div></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-list>
+  &lt;md-list-item headline="Ali Connors"
+    supporting-text="Two-line item">&lt;/md-list-item>
+&lt;/md-list></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-list-container-shape</code></td><td>Expressive lists use dynamic shape corners</td></tr><tr><td><code>--md-comp-list-item-one-line-container-height</code></td><td>Varies — TODO(spec)</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/lists/overview">lists/overview</a> · planned in this repo's roadmap.</p>
+<table><tr><td><code>--md-comp-list-container-shape</code></td><td>Dynamic shape corners</td></tr><tr><td><code>--md-comp-list-item-container-height</code></td><td>TODO(spec)</td></tr></table>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/lists/overview">lists/overview</a> · roadmap.</p>
 </section><h2 id="cat-communication">Communication</h2><section class="comp" id="dialogs" data-search>
 <h3>Dialogs <a class="pill roadmap" href="#dialogs">roadmap</a></h3>
-<p><strong>About.</strong> Modal containers for critical decisions or short forms. Scrim blocks interaction; buttons are text/filled per role.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Critical confirmations (destructive)</li><li>Blocking, required decisions</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Modal containers for critical decisions; scrim blocks interaction.</p>
+<p><strong>When to use.</strong> Critical confirmations (destructive) · Blocking, required decisions</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><div class="dialog-demo"><h4 style="margin:0 0 8px">Delete file?</h4><p style="margin:0;color:var(--md-sys-on-surface-variant)">This action cannot be undone.</p><div class="actions"><button class="btn text">Cancel</button><button class="btn tonal">Delete</button></div></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-dialog open>
+  &lt;h4>Delete file?&lt;/h4>
+  &lt;p>This action cannot be undone.&lt;/p>
+  &lt;md-text-button dialog-dismiss>Cancel&lt;/md-text-button>
+&lt;/md-dialog></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-dialog-container-shape</code></td><td>28dp</td></tr><tr><td><code>--md-comp-dialog-scrim-color</code></td><td>rgba(0,0,0,.32) — verify vs TODO(spec)</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/dialogs/overview">dialogs/overview</a> · planned in this repo's roadmap.</p>
+<table><tr><td><code>--md-comp-dialog-container-shape</code></td><td>28dp</td></tr><tr><td><code>--md-comp-dialog-scrim-color</code></td><td>TODO(spec)</td></tr></table>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/dialogs/overview">dialogs/overview</a> · roadmap.</p>
 </section><section class="comp" id="snackbars" data-search>
 <h3>Snackbars <a class="pill roadmap" href="#snackbars">roadmap</a></h3>
-<p><strong>About.</strong> Transient bottom messages with an optional action and dismiss icon; the mobile pattern for lightweight feedback.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Brief, non-blocking feedback</li><li>Undo-type actions</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Transient bottom messages with an optional action and dismiss icon.</p>
+<p><strong>When to use.</strong> Brief, non-blocking feedback · Undo-type actions</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><button class="btn tonal" data-snackbar="sb-demo">Show snackbar</button><span class="snackbar" id="sb-demo" style="display:none">File archived <button>Undo</button></span></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-snackbar open>File archived
+  &lt;md-text-button>Undo&lt;/md-text-button>
+&lt;/md-snackbar></code></pre>
 <p><strong>How to configure.</strong></p>
 <table><tr><td><code>--md-comp-snackbar-container-shape</code></td><td>4dp</td></tr><tr><td><code>--md-comp-snackbar-container-color</code></td><td>inverse surface</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/snackbars/overview">snackbars/overview</a> · planned in this repo's roadmap.</p>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/snackbars/overview">snackbars/overview</a> · roadmap.</p>
 </section><section class="comp" id="banner" data-search>
 <h3>Banner <a class="pill roadmap" href="#banner">roadmap</a></h3>
-<p><strong>About.</strong> A prominent container below the app bar for important, dismissible messages with 1–2 actions.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Account/critical notices that need visible persistence</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> A prominent, dismissible container below the app bar with 1–2 actions.</p>
+<p><strong>When to use.</strong> Notices needing visible persistence</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><div class="banner-demo"><span>⚠</span><p style="margin:0;font-size:14px">A banner draws attention to a important, dismissible message.</p><span class="actions"><button class="btn text">Action</button><button class="iconbtn" aria-label="Dismiss">✕</button></span></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-banner>
+  This message needs attention.
+  &lt;md-text-button>Action&lt;/md-text-button>
+&lt;/md-banner></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-banner-container-shape</code></td><td>Expressive: 4–16dp container</td></tr><tr><td><code>--md-comp-banner-container-color</code></td><td>surface-variant — TODO(spec)</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/banners/overview">banners/overview</a> · planned in this repo's roadmap.</p>
+<table><tr><td><code>--md-comp-banner-container-shape</code></td><td>Expressive 4–16dp</td></tr><tr><td><code>--md-comp-banner-container-color</code></td><td>TODO(spec)</td></tr></table>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/banners/overview">banners/overview</a> · roadmap.</p>
 </section><section class="comp" id="loading-indicator" data-search>
 <h3>Loading indicator <a class="pill ported" href="#loading-indicator">ported</a></h3>
-<p><strong>About.</strong> Expressive-new: a circular indicator that morphs into a wavy, animated form while loading — the flagship Expressive motion demo.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Replacing flat spinners for expressive loading states</li></ul>
+<p><strong>About.</strong> Expressive-new: a circular indicator morphing into a wavy, animated form — the flagship Expressive motion demo.</p>
+<p><strong>When to use.</strong> Replacing flat spinners for expressive loading states</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><span class="loading-ind" role="img" aria-label="Loading"></span><span class="spinner" role="img" aria-label="Loading"></span></div><p><small>Left: expressive loading indicator morphing square → circle → wavy with the exact spring. Right: classic circular spinner.</small></p>
 <p><strong>How to use.</strong></p>
 <pre><code>&lt;md-loading-indicator>&lt;/md-loading-indicator></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-loading-indicator-size</code></td><td>Scale of the indicator</td></tr><tr><td><code>--md-sys-motion-fast-spatial</code></td><td>Morph spring</td></tr></table>
+<table><tr><td><code>--md-comp-loading-indicator-size</code></td><td>Scale</td></tr><tr><td><code>--md-sys-motion-fast-spatial</code></td><td>Morph spring</td></tr></table>
 <p><strong>Where to get.</strong> Built into this library — see <a href="https://github.com/lobsterbs/m3-expressive-web/tree/main/src/components">src/components</a>.</p>
 </section><section class="comp" id="progress" data-search>
 <h3>Progress indicators (linear / circular / wavy) <a class="pill ported" href="#progress">ported</a></h3>
-<p><strong>About.</strong> Deterministic and indeterminate progress. Expressive adds the wavy progress indicator: the bar undulates with a wave phase while active.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Known-bounded progress (determinate)</li><li>Unknown wait (indeterminate / wavy)</li></ul>
+<p><strong>About.</strong> Determinate and indeterminate progress; Expressive adds the wavy indicator (amplitude/wavelength shape the wave).</p>
+<p><strong>When to use.</strong> Known-bounded progress (determinate) · Unknown wait (indeterminate / wavy)</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo" style="flex-direction:column;align-items:flex-start"><div class="progress" data-auto><div class="bar"></div><div class="fill"></div></div><div class="progress wavy" data-auto><div class="bar"></div><div class="fill"></div></div><div class="progress circular" style="--val:75%"><svg viewBox="0 0 48 48"><circle class="track" cx="24" cy="24" r="20"/><circle class="ind" cx="24" cy="24" r="20"/></svg></div></div>
 <p><strong>How to use.</strong></p>
 <pre><code>&lt;md-wavy-progress value="0.6">&lt;/md-wavy-progress>
 &lt;md-wavy-progress circular indeterminate>&lt;/md-wavy-progress></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-progress-active-indicator-color</code></td><td>Track/indicator fill</td></tr><tr><td><code>--md-comp-progress-wave-amplitude</code></td><td>Wavy variant — TODO(spec: Figma kit)</td></tr></table>
+<table><tr><td><code>--md-comp-progress-active-indicator-color</code></td><td>Track/indicator fill</td></tr><tr><td><code>--md-comp-progress-wave-amplitude</code></td><td>0 default; ramp min 0.1</td></tr><tr><td><code>--md-comp-progress-wavelength</code></td><td>0 default</td></tr></table>
 <p><strong>Where to get.</strong> Built into this library — see <a href="https://github.com/lobsterbs/m3-expressive-web/tree/main/src/components">src/components</a>.</p>
 </section><section class="comp" id="badge" data-search>
 <h3>Badge <a class="pill roadmap" href="#badge">roadmap</a></h3>
-<p><strong>About.</strong> Small dynamic indicator for status, count, or presence, docked to icons/navigation.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Notification counts</li><li>Status dots</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Small dynamic indicator for status, count, or presence docked to icons.</p>
+<p><strong>When to use.</strong> Notification counts · Status dots</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><span class="badge-anchor">🔔<span class="badge">3</span></span><span class="badge-anchor">✉<span class="badge dot"></span></span></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-badge value="3">🔔&lt;/md-badge></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-badge-container-shape</code></td><td>full</td></tr><tr><td><code>--md-comp-badge-container-color</code></td><td>error by default</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/badges/overview">badges/overview</a> · planned in this repo's roadmap.</p>
+<table><tr><td><code>--md-comp-badge-container-shape</code></td><td>full</td></tr><tr><td><code>--md-comp-badge-container-color</code></td><td>error default</td></tr></table>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/badges/overview">badges/overview</a> · roadmap.</p>
 </section><section class="comp" id="tooltips" data-search>
 <h3>Tooltips <a class="pill roadmap" href="#tooltips">roadmap</a></h3>
-<p><strong>About.</strong> Short informative text on hover/long-press of a target; plain and rich (icon+text) variants.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Explaining icon-only buttons</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Short informative text on hover/long-press; plain and rich variants.</p>
+<p><strong>When to use.</strong> Explaining icon-only buttons</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><button class="btn tonal tip" data-tip="I'm a plain tooltip">Hover me</button></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;button data-tooltip="Save the file">💾&lt;/button></code></pre>
 <p><strong>How to configure.</strong></p>
 <table><tr><td><code>--md-comp-plain-tooltip-container-shape</code></td><td>4dp</td></tr><tr><td><code>--md-comp-plain-tooltip-container-color</code></td><td>inverse surface</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/tooltips/overview">tooltips/overview</a> · planned in this repo's roadmap.</p>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/tooltips/overview">tooltips/overview</a> · roadmap.</p>
 </section><h2 id="cat-navigation">Navigation</h2><section class="comp" id="top-app-bar" data-search>
 <h3>Top app bar <a class="pill roadmap" href="#top-app-bar">roadmap</a></h3>
-<p><strong>About.</strong> Header surface for navigation and actions; Expressive replaces the centered-title two-row layout with flexible emphasis options.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>App header, contextual actions on scroll</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Header surface for navigation and actions; Expressive replaces two-row centered titles with flexible emphasis.</p>
+<p><strong>When to use.</strong> App header, contextual actions on scroll</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><div class="appbar-demo"><span>☰</span><strong style="flex:1">Top app bar</strong><button class="iconbtn">♥</button><button class="iconbtn">⋯</button></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-top-app-bar>
+  &lt;md-icon-button slot="navigation">menu&lt;/md-icon-button>
+  &lt;span slot="headline">Title&lt;/span>
+&lt;/md-top-app-bar></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-top-app-bar-container-shape</code></td><td>Expressive: 4dp corner on scroll — TODO(spec)</td></tr><tr><td><code>--md-comp-top-app-bar-container-elevation</code></td><td>scroll elevation level 2</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/app-bars/top">app-bars/top</a> · planned in this repo's roadmap.</p>
+<table><tr><td><code>--md-comp-top-app-bar-container-shape</code></td><td>Expressive TODO(spec)</td></tr><tr><td><code>--md-comp-top-app-bar-container-elevation</code></td><td>scroll elevation 2</td></tr></table>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/app-bars/top">app-bars/top</a> · roadmap.</p>
 </section><section class="comp" id="bottom-app-bar" data-search>
 <h3>Bottom app bar <a class="pill roadmap" href="#bottom-app-bar">roadmap</a></h3>
 <p><strong>About.</strong> Bottom navigation surface paired with an attached or inset FAB.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Mobile-first app navigation with a primary action</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>When to use.</strong> Mobile-first navigation with primary action</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo" style="padding-bottom:0"><div class="appbar-demo"><span>☰</span><strong style="flex:1">Bottom app bar</strong><button class="fab small">＋</button></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-bottom-app-bar fab="attached">…&lt;/md-bottom-app-bar></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-bottom-app-bar-container-shape</code></td><td>16dp</td></tr><tr><td><code>--md-comp-bottom-app-bar-fab-offset</code></td><td>FAB inset values — TODO(spec)</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/app-bars/bottom">app-bars/bottom</a> · planned in this repo's roadmap.</p>
+<table><tr><td><code>--md-comp-bottom-app-bar-container-shape</code></td><td>16dp</td></tr><tr><td><code>--md-comp-bottom-app-bar-fab-offset</code></td><td>TODO(spec)</td></tr></table>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/app-bars/bottom">app-bars/bottom</a> · roadmap.</p>
 </section><section class="comp" id="navigation-bar" data-search>
 <h3>Navigation bar <a class="pill roadmap" href="#navigation-bar">roadmap</a></h3>
 <p><strong>About.</strong> 3–5 destination bottom navigation with active-indicator pills and icon+label pairs.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Top-level navigation on mobile</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>When to use.</strong> Top-level navigation on mobile</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo" style="padding-bottom:0"><div class="navbar-demo"><a href="#" class="active" onclick="return false"><span class="ind"></span>🏠 Home</a><a href="#" onclick="return false"><span class="ind"></span>🔎 Search</a><a href="#" onclick="return false"><span class="ind"></span>⚙ Settings</a></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-navigation-bar>
+  &lt;md-navigation-bar-item selected>Home&lt;/md-navigation-bar-item>
+&lt;/md-navigation-bar></code></pre>
 <p><strong>How to configure.</strong></p>
 <table><tr><td><code>--md-comp-navigation-bar-active-indicator-shape</code></td><td>full</td></tr><tr><td><code>--md-comp-navigation-bar-active-indicator-color</code></td><td>secondary-container</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/navigation-bar/overview">navigation-bar/overview</a> · planned in this repo's roadmap.</p>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/navigation-bar/overview">navigation-bar/overview</a> · roadmap.</p>
 </section><section class="comp" id="navigation-rail" data-search>
 <h3>Navigation rail <a class="pill roadmap" href="#navigation-rail">roadmap</a></h3>
-<p><strong>About.</strong> Navigation-bar pattern for tablet/expanded screens; menu icon toggles to a navigation drawer.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Medium-window primary navigation</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Navigation-bar pattern for medium/expanded screens; hover expands it to labeled items.</p>
+<p><strong>When to use.</strong> Medium-window primary navigation</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo" style="padding-bottom:0"><div class="navbar-demo" style="max-width:none;flex-direction:column;width:80px;justify-content:flex-start;gap:12px;padding:12px"><a href="#" class="active" onclick="return false" style="flex-direction:row"><span class="ind" style="width:56px;height:32px"></span>🏠</a><a href="#" onclick="return false" style="flex-direction:row"><span class="ind"></span>🔎</a><a href="#" onclick="return false" style="flex-direction:row"><span class="ind"></span>⚙</a></div></div><p><small>The docs site's own left navigation <em>is</em> a live nav rail — hover it to expand with the fast-spatial spring.</small></p>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-navigation-rail>
+  &lt;md-navigation-rail-item selected>Home&lt;/md-navigation-rail-item>
+&lt;/md-navigation-rail></code></pre>
 <p><strong>How to configure.</strong></p>
 <table><tr><td><code>--md-comp-navigation-rail-active-indicator-shape</code></td><td>full</td></tr><tr><td><code>--md-comp-navigation-rail-container-width</code></td><td>80dp</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/navigation-rail/overview">navigation-rail/overview</a> · planned in this repo's roadmap.</p>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/navigation-rail/overview">navigation-rail/overview</a> · roadmap.</p>
 </section><section class="comp" id="navigation-drawer" data-search>
 <h3>Navigation drawer <a class="pill roadmap" href="#navigation-drawer">roadmap</a></h3>
-<p><strong>About.</strong> Side sheet with navigation items (and optional headers/badges); modal variant has scrim.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Detail/list app navigation on desktop</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Side sheet with navigation items; modal variant has scrim.</p>
+<p><strong>When to use.</strong> App navigation on desktop</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo"><div style="width:200px;background:var(--md-sys-surface-container-low,var(--md-sys-surface));border-radius:16px 0 0 16px;padding:12px"><strong style="padding:8px 16px;display:block">Header</strong><div class="li" style="display:flex;padding:8px 16px;border-radius:9999px;background:var(--md-sys-secondary-container);margin:4px 0">Inbox</div><div style="padding:8px 16px;color:var(--md-sys-on-surface-variant)">Outbox</div><div style="padding:8px 16px;color:var(--md-sys-on-surface-variant)">Settings</div></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-navigation-drawer open>
+  &lt;md-navigation-item>Inbox&lt;/md-navigation-item>
+&lt;/md-navigation-drawer></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-navigation-drawer-container-shape</code></td><td>16dp end</td></tr><tr><td><code>--md-comp-navigation-drawer-modal-scrim-color</code></td><td>Scrim — TODO(spec)</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/navigation-drawer/overview">navigation-drawer/overview</a> · planned in this repo's roadmap.</p>
+<table><tr><td><code>--md-comp-navigation-drawer-container-shape</code></td><td>16dp end</td></tr><tr><td><code>--md-comp-navigation-drawer-modal-scrim-color</code></td><td>TODO(spec)</td></tr></table>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/navigation-drawer/overview">navigation-drawer/overview</a> · roadmap.</p>
 </section><section class="comp" id="tabs" data-search>
 <h3>Tabs / navigation tab <a class="pill roadmap" href="#tabs">roadmap</a></h3>
-<p><strong>About.</strong> Horizontal content switchers with primary/secondary styles and expressive indicator motion (fixed vs scrolling).</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Top-level content switching within a page</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Horizontal content switchers with primary/secondary styles and expressive indicator motion.</p>
+<p><strong>When to use.</strong> Top-level content switching within a page</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo" style="flex-direction:column;align-items:flex-start"><div class="tabs"><button aria-selected="true">Tab one</button><button aria-selected="false">Tab two</button><button aria-selected="false">Tab three</button></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-tabs>
+  &lt;md-primary-tab selected>Tab one&lt;/md-primary-tab>
+  &lt;md-primary-tab>Tab two&lt;/md-primary-tab>
+&lt;/md-tabs></code></pre>
 <p><strong>How to configure.</strong></p>
 <table><tr><td><code>--md-comp-tabs-active-indicator-shape</code></td><td>full</td></tr><tr><td><code>--md-comp-tab-label-text-font</code></td><td>Label scale typeface</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/tabs/overview">tabs/overview</a> · planned in this repo's roadmap.</p>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/tabs/overview">tabs/overview</a> · roadmap.</p>
 </section><section class="comp" id="search" data-search>
 <h3>Search bar & search view <a class="pill roadmap" href="#search">roadmap</a></h3>
-<p><strong>About.</strong> Expressive search: a full-width pill search bar with menu actions, expanding into a scrollable search view.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>App search entry point</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Expressive search: full-width pill bar expanding into a scrollable search view.</p>
+<p><strong>When to use.</strong> App search entry point</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo" style="flex-direction:column;align-items:stretch;max-width:420px"><div class="searchbar-demo">🔎 <span style="flex:1">Search…</span> <span>☰</span></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-search-bar placeholder="Search…">&lt;/md-search-bar></code></pre>
 <p><strong>How to configure.</strong></p>
-<table><tr><td><code>--md-comp-search-bar-container-shape</code></td><td>full</td></tr><tr><td><code>--md-comp-search-view-container-shape</code></td><td>28dp — TODO(spec)</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/search/overview">search/overview</a> · planned in this repo's roadmap.</p>
+<table><tr><td><code>--md-comp-search-bar-container-shape</code></td><td>full</td></tr><tr><td><code>--md-comp-search-view-container-shape</code></td><td>28dp TODO(spec)</td></tr></table>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/search/overview">search/overview</a> · roadmap.</p>
 </section><h2 id="cat-text-input">Text input</h2><section class="comp" id="text-fields" data-search>
 <h3>Text fields <a class="pill roadmap" href="#text-fields">roadmap</a></h3>
-<p><strong>About.</strong> Filled and outlined inputs with floating labels, supporting text, and trailing icons.</p>
-<p><strong>When to use.</strong></p>
-<ul><li>Form text entry</li></ul>
-<p><strong>How to use.</strong> Not yet ported — planned element shown.</p>
-
+<p><strong>About.</strong> Filled and outlined inputs with floating labels and supporting text.</p>
+<p><strong>When to use.</strong> Form text entry</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo" style="flex-direction:column;align-items:flex-start;gap:20px"><div class="field"><input type="text" id="f1" placeholder=" "><label for="f1">Outlined label</label></div><div class="field"><input type="text" id="f2" placeholder=" " value="Filled with text"><label for="f2">Label</label></div></div>
+<p><strong>How to use (planned element).</strong></p>
+<pre><code>&lt;md-outlined-text-field label="Name">
+  Support text
+&lt;/md-outlined-text-field></code></pre>
 <p><strong>How to configure.</strong></p>
 <table><tr><td><code>--md-comp-outlined-text-field-container-shape</code></td><td>4dp</td></tr><tr><td><code>--md-comp-text-field-focus-indicator-width</code></td><td>2dp on focus</td></tr></table>
-<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/text-fields/overview">text-fields/overview</a> · planned in this repo's roadmap.</p>
+<p><strong>Where to get.</strong> Spec: <a href="https://m3.material.io/components/text-fields/overview">text-fields/overview</a> · roadmap.</p>
 </section></main>
 <footer><p>A community port of Material 3 Expressive for the web — exact spec values only.</p>
 <p><a href="https://github.com/lobsterbs/m3-expressive-web">GitHub</a><a href="https://m3.material.io">Material 3 spec</a></p>
-</footer><script src="main.js"></script></body></html>
+</footer><script src="main.js"></script><script src="ui.js"></script></body></html>
