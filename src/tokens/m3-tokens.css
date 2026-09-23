@@ -7,11 +7,14 @@
  *   --md-comp-*  component tokens (per-component overrides, default to system)
  *
  * Baseline light/dark scheme values follow the M3 baseline palette; state layer
- * opacities, elevation levels, shape corners and motion springs follow the M3
- * spec. Replace values with a Material Theme Builder export to theme your app.
+ * opacities, elevation levels, shape corners follow the M3 spec. Motion springs
+ * use the EXACT canonical constants from MDC-Android motion tokens.xml
+ * (damping/stiffness pairs shared with Compose MotionScheme.expressive()),
+ * integrated from the damped harmonic oscillator into CSS linear() curves.
+ * Regenerate with springToLinear() from src/motion/springs.ts.
  *
  * Sources: https://m3.material.io/foundations/design-tokens/overview
- *          https://m3.material.io/foundations/interaction/states/state-layers
+ *          https://github.com/material-components/material-components-android/blob/master/docs/theming/Motion.md
  */
 
 :root {
@@ -60,17 +63,14 @@
   --md-sys-color-inverse-on-surface: #f5eff7;
   --md-sys-color-inverse-primary: #d0bcff;
 
-  /* ===== State layer opacities (M3 spec values) =====
-   * Applied by <md-state-layer>/<md-ripple> using currentColor overlays.
-   */
+  /* ===== State layer opacities (M3 spec values) ===== */
   --md-sys-state-hover-state-layer-opacity: 0.08;
   --md-sys-state-focus-state-layer-opacity: 0.10;
   --md-sys-state-pressed-state-layer-opacity: 0.10;
   --md-sys-state-dragged-state-layer-opacity: 0.16;
-  /* hover+focus combined */
   --md-sys-state-hover-and-focus-state-layer-opacity: 0.12;
 
-  /* ===== Elevation levels 0-5 (dp heights in shadow terms; tint deprecated) ===== */
+  /* ===== Elevation levels 0-5 (dp heights; tint deprecated) ===== */
   --md-sys-elevation-level0: none;
   --md-sys-elevation-level1: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   --md-sys-elevation-level2: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
@@ -88,7 +88,7 @@
   --md-sys-shape-corner-extra-extra-large: 48px;
   --md-sys-shape-corner-full: 9999px;
 
-  /* ===== Motion: legacy easing & duration (transitions) ===== */
+  /* ===== Motion: legacy easing & duration (spec parity only; prefer springs) ===== */
   --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
   --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
   --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
@@ -99,11 +99,24 @@
   --md-sys-motion-duration-medium-4: 400ms;
   --md-sys-motion-duration-long-2: 500ms;
 
-  /* ===== Motion: expressive springs (generated linear() curves; see motion/springs.ts) ===== */
-  /* Spatial spring — for position/scale; bouncy, mirrors real object movement */
-  --md-sys-motion-spring-spatial: linear(0, 0.0036 8.33%, 0.0185 16.7%, 0.06 25%, 0.35 41.7%, 0.69 55%, 0.88 63.9%, 0.96 70%, 1.03 76.4%, 1.04 80%, 1.02 86.1%, 1 92%, 1);
-  /* Effects spring — for color/opacity; smooth, no overshoot */
-  --md-sys-motion-spring-effects: linear(0, 0.04 12.5%, 0.19 25%, 0.6 50%, 0.86 68.8%, 0.96 81.2%, 1 100%);
+  /* ===== Motion: expressive springs — EXACT canonical values =====
+   * fast-spatial    damping 0.9  stiffness 1400  (small components: position/shape)
+   * fast-effects    damping 1.0  stiffness 3800  (small component color/opacity)
+   * default-spatial damping 0.9  stiffness 700   (partial-screen: sheets, drawers)
+   * default-effects damping 1.0  stiffness 1600  (partial-screen effects)
+   * slow-spatial    damping 0.9  stiffness 300   (full-screen transitions)
+   * slow-effects    damping 1.0  stiffness 800   (full-screen color/opacity)
+   * Per spec, component motion drives off the two FAST tokens (aliased below).
+   */
+  --md-sys-motion-spring-fast-spatial: linear(0.0000, 0.1207 3.13%, 0.3436 6.25%, 0.5563 9.38%, 0.7218 12.50%, 0.8367 15.63%, 0.9104 18.75%, 0.9546 21.88%, 0.9793 25.00%, 0.9922 28.13%, 0.9983 31.25%, 1.0008 34.38%, 1.0015 37.50%, 1.0014 40.63%, 1.0011 43.75%, 1.0008 46.88%, 1.0005 50.00%, 1.0003 53.13%, 1.0002 56.25%, 1.0001 59.38%, 1.0000 62.50%, 1.0000 65.63%, 1.0000 68.75%, 1.0000 71.88%, 1.0000 75.00%, 1.0000 78.13%, 1.0000 81.25%, 1.0000 84.38%, 1.0000 87.50%, 1.0000 90.63%, 1.0000 93.75%, 1.0000 96.88%, 1);
+  --md-sys-motion-spring-fast-effects: linear(0.0000, 0.2507 3.13%, 0.5737 6.25%, 0.7837 9.38%, 0.8970 12.50%, 0.9529 15.63%, 0.9790 18.75%, 0.9909 21.88%, 0.9961 25.00%, 0.9983 28.13%, 0.9993 31.25%, 0.9997 34.38%, 0.9999 37.50%, 1.0000 40.63%, 1.0000 43.75%, 1.0000 46.88%, 1.0000 50.00%, 1.0000 53.13%, 1.0000 56.25%, 1.0000 59.38%, 1.0000 62.50%, 1.0000 65.63%, 1.0000 68.75%, 1.0000 71.88%, 1.0000 75.00%, 1.0000 78.13%, 1.0000 81.25%, 1.0000 84.38%, 1.0000 87.50%, 1.0000 90.63%, 1.0000 93.75%, 1.0000 96.88%, 1);
+  --md-sys-motion-spring-default-spatial: linear(0.0000, 0.1330 3.13%, 0.3711 6.25%, 0.5903 9.38%, 0.7541 12.50%, 0.8629 15.63%, 0.9293 18.75%, 0.9670 21.88%, 0.9867 25.00%, 0.9961 28.13%, 1.0001 31.25%, 1.0014 34.38%, 1.0015 37.50%, 1.0012 40.63%, 1.0008 43.75%, 1.0005 46.88%, 1.0003 50.00%, 1.0002 53.13%, 1.0001 56.25%, 1.0000 59.38%, 1.0000 62.50%, 1.0000 65.63%, 1.0000 68.75%, 1.0000 71.88%, 1.0000 75.00%, 1.0000 78.13%, 1.0000 81.25%, 1.0000 84.38%, 1.0000 87.50%, 1.0000 90.63%, 1.0000 93.75%, 1.0000 96.88%, 1);
+  --md-sys-motion-spring-default-effects: linear(0.0000, 0.2413 3.13%, 0.5591 6.25%, 0.7710 9.38%, 0.8883 12.50%, 0.9476 15.63%, 0.9761 18.75%, 0.9893 21.88%, 0.9953 25.00%, 0.9980 28.13%, 0.9991 31.25%, 0.9996 34.38%, 0.9998 37.50%, 0.9999 40.63%, 1.0000 43.75%, 1.0000 46.88%, 1.0000 50.00%, 1.0000 53.13%, 1.0000 56.25%, 1.0000 59.38%, 1.0000 62.50%, 1.0000 65.63%, 1.0000 68.75%, 1.0000 71.88%, 1.0000 75.00%, 1.0000 78.13%, 1.0000 81.25%, 1.0000 84.38%, 1.0000 87.50%, 1.0000 90.63%, 1.0000 93.75%, 1.0000 96.88%, 1);
+  --md-sys-motion-spring-slow-spatial: linear(0.0000, 0.1630 3.13%, 0.4346 6.25%, 0.6636 9.38%, 0.8189 12.50%, 0.9115 15.63%, 0.9614 18.75%, 0.9859 21.88%, 0.9966 25.00%, 1.0005 28.13%, 1.0015 31.25%, 1.0014 34.38%, 1.0010 37.50%, 1.0006 40.63%, 1.0003 43.75%, 1.0002 46.88%, 1.0001 50.00%, 1.0000 53.13%, 1.0000 56.25%, 1.0000 59.38%, 1.0000 62.50%, 1.0000 65.63%, 1.0000 68.75%, 1.0000 71.88%, 1.0000 75.00%, 1.0000 78.13%, 1.0000 81.25%, 1.0000 84.38%, 1.0000 87.50%, 1.0000 90.63%, 1.0000 93.75%, 1.0000 96.88%, 1);
+  --md-sys-motion-spring-slow-effects: linear(0.0000, 0.3189 3.13%, 0.6687 6.25%, 0.8584 9.38%, 0.9435 12.50%, 0.9784 15.63%, 0.9920 18.75%, 0.9971 21.88%, 0.9990 25.00%, 0.9996 28.13%, 0.9999 31.25%, 1.0000 34.38%, 1.0000 37.50%, 1.0000 40.63%, 1.0000 43.75%, 1.0000 46.88%, 1.0000 50.00%, 1.0000 53.13%, 1.0000 56.25%, 1.0000 59.38%, 1.0000 62.50%, 1.0000 65.63%, 1.0000 68.75%, 1.0000 71.88%, 1.0000 75.00%, 1.0000 78.13%, 1.0000 81.25%, 1.0000 84.38%, 1.0000 87.50%, 1.0000 90.63%, 1.0000 93.75%, 1.0000 96.88%, 1);
+  /* Aliases: the two tokens that drive all component motion per the spec */
+  --md-sys-motion-spring-spatial: var(--md-sys-motion-spring-fast-spatial);
+  --md-sys-motion-spring-effects: var(--md-sys-motion-spring-fast-effects);
 
   /* ===== Typography (baseline + emphasized pairs; Roboto/Roboto Flex default) ===== */
   --md-sys-typescale-body-medium-font: 'Roboto', system-ui, sans-serif;

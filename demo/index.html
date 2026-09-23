@@ -14,7 +14,7 @@
 </head>
 <body>
   <section>
-    <h2>Common buttons (with state layers + ripple)</h2>
+    <h2>Common buttons (state layers + ripple + corner morph)</h2>
     <div class="row">
       <md-filled-button>Filled</md-filled-button>
       <md-filled-tonal-button>Tonal</md-filled-tonal-button>
@@ -50,6 +50,31 @@
       <md-filled-tonal-button slot="item">New folder</md-filled-tonal-button>
       <md-filled-tonal-button slot="item">Upload</md-filled-tonal-button>
     </md-fab-menu>
+  </section>
+
+  <section>
+    <h2>Split button (connected segments + menu)</h2>
+    <div class="row">
+      <md-split-button variant="filled">
+        Send
+        <div slot="item">Send now</div>
+        <div slot="item">Schedule for later</div>
+      </md-split-button>
+      <md-split-button variant="outlined">
+        Export
+        <div slot="item">Export as PDF</div>
+        <div slot="item">Export as CSV</div>
+      </md-split-button>
+    </div>
+  </section>
+
+  <section style="width:100%">
+    <h2>Toolbar (corner morph on hover)</h2>
+    <md-toolbar style="width:100%">
+      <span slot="start">Inbox</span>
+      <md-text-button slot="end">Archive</md-text-button>
+      <md-filled-button slot="end">New</md-filled-button>
+    </md-toolbar>
   </section>
 </body>
 </html>
