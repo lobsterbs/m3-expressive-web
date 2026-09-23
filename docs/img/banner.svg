@@ -1,13 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="760" height="140" viewBox="0 0 760 140" role="img" aria-label="m3-expressive-web — Material 3 Expressive for the web">
-  <!-- M3 expressive shapes: cookie, clover, pill, circle, soft square -->
-  <path d="M40 70c0-18 12-30 26-30 4-14 18-22 32-18 10-12 28-12 38 0 14-4 28 4 32 18 14 0 26 12 26 30s-12 30-26 30c-4 14-18 22-32 18-10 12-28 12-38 0-14 4-28-4-32-18-14 0-26-12-26-30z" fill="#EADDFF"/>
-  <path d="M80 45c8-10 22-10 30 0s8 22 0 32-22 10-30 0-8-22 0-32z" fill="#6750A4" opacity=".85"/>
-  <rect x="150" y="45" width="50" height="50" rx="12" fill="#FFD8E4"/>
-  <path d="M230 45c14 0 25 11 25 25s-11 25-25 25-25-11-25-25 11-25 25-25z" fill="none" stroke="#6750A4" stroke-width="3"/>
-  <rect x="280" y="53" width="90" height="34" rx="17" fill="#6750A4"/>
-  <path d="M410 70c0-16 13-29 29-29s29 13 29 29-13 29-29 29-29-13-29-29z" fill="#CCC2DC"/>
-  <rect x="490" y="45" width="50" height="50" rx="25" fill="#B3261E" opacity=".2"/>
-  <path d="M580 60c0-11 9-20 20-20h10c11 0 20 9 20 20v20c0 11-9 20-20 20h-10c-11 0-20-9-20-20z" fill="#EADDFF"/>
-  <text x="40" y="128" font-family="Roboto, system-ui, sans-serif" font-size="22" font-weight="500" fill="#6750A4">Material 3 Expressive — for the web</text>
-  <text x="640" y="128" font-family="Roboto Mono, monospace" font-size="13" fill="#79747E">exact spec values</text>
+  <!-- A tidy row of M3 Expressive shapes, evenly spaced on a shared baseline:
+       cookie(9) · soft square · pill · full circle · 28dp-rounded square · clover(4) -->
+  <g transform="translate(40,55)">
+    <!-- cookie 9-sided scalloped shape -->
+    <path d="M24 0c2-9 12-13 19-8 7-6 17-2 18 7 10 0 16 9 12 17 8 5 8 16 0 21 4 8-2 17-12 17-1 9-11 13-18 7-7 6-17 2-19-8-10 0-16-9-13-17-8-5-8-16 0-21-4-8 2-16 13-17z" transform="translate(-8,-16) scale(1.05)" fill="#EADDFF"/>
+    <!-- soft square -->
+    <rect x="76" y="-4" width="46" height="46" rx="14" fill="#7D5260" opacity=".9"/>
+    <!-- pill -->
+    <rect x="146" y="11" width="76" height="18" rx="9" fill="#6750A4"/>
+    <!-- full circle -->
+    <circle cx="252" cy="19" r="23" fill="none" stroke="#6750A4" stroke-width="3"/>
+    <!-- 28dp-equivalent rounded square -->
+    <rect x="300" y="-4" width="46" height="46" rx="16" fill="#CCC2DC"/>
+    <!-- clover 4-leaf -->
+    <path d="M396 19c-8-8-8-16 0-19 8-3 16 3 19 11 3-8 11-14 19-11 8 3 8 11 0 19 8 8 8 16 0 19-8 3-16-3-19-11-3 8-11 14-19 11-8-3-8-11 0-19z" fill="#FFD8E4"/>
+  </g>
+  <text x="40" y="118" font-family="'Google Sans Flex', Roboto, system-ui, sans-serif" font-size="22" font-weight="600" fill="#6750A4">Material 3 Expressive — for the web</text>
+  <text x="598" y="118" font-family="ui-monospace, monospace" font-size="13" fill="#79747E">exact spec values</text>
 </svg>

@@ -71,6 +71,21 @@ Ported: common buttons (5 variants), button-group, FAB, FAB menu, split
 button, loading indicator, wavy progress (linear/circular), slider, toolbar.
 Primitives: md-state-layer, md-ripple, md-elevation, md-focus-ring.
 
+## Exact values — components (verified from MDC-Android docs)
+
+Slider: trackHeight 16dp · thumbWidth 4dp · thumbHeight 44dp ·
+trackStopIndicatorSize 4dp · trackCornerSize = trackHeight/2 ·
+trackInsideCornerSize 2dp · labelBehavior floating · minSeparation 0dp.
+
+Wavy progress: waveAmplitude 0 (flat default) · wavelength 0 ·
+waveAmplitudeRampProgressMin 0.1 · indicatorInset 4dp; for wavy tracks use
+trackCornerRadius 4dp and indicatorSize 44dp. Compose amplitude default 1f.
+
+Typography: M3 has 15 baseline + 15 emphasized styles (same scale, higher
+weight/size). Emphasized pairs are a roadmap item for this library.
+
+Full source index with per-value attribution: docs/references.md in the repo.
+
 ## Theming (two-tier tokens)
 
 ```css
