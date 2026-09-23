@@ -1,95 +1,91 @@
 ---
 name: m3-expressive-web
-description: Build, theme, and extend Material 3 Expressive web UIs using the m3-expressive-web component library. Triggers on requests involving Material Design 3 / Material You, M3 Expressive components (buttons, button groups, sliders, wavy progress, FAB menus, split buttons, toolbars), design tokens (--md-sys-*), state layers, spring motion, or shape morphing on the web. Also use when porting additional M3 components or verifying M3 spec values.
+description: Build, theme, and extend Material 3 Expressive web UIs with the m3-expressive-web component library (github.com/lobsterbs/m3-expressive-web). Use when the user mentions Material 3 / Material You / M3 Expressive, its components (buttons, button groups, FAB menus, split buttons, wavy progress, loading indicators, sliders, toolbars), design tokens (--md-sys-* / --md-comp-*), spring motion, shape morphing, state layers, Google Sans Flex, or asks to port M3 components or verify M3 spec values. Follows the Agent Skills open standard.
 ---
 
 # m3-expressive-web — Material 3 Expressive for the web
 
-A community port of Material 3 Expressive as Lit web components with exact
-spec values (canonical spring constants, state-layer opacities, elevation
-levels, corner scale). Works in any framework (React, Vue, Angular, Svelte,
-vanilla).
+Community port of Material 3 Expressive to the web as Lit-based custom elements.
+Google's official Material Web Components are in maintenance mode and never
+received the Expressive update. This library implements it with **exact spec
+values** — sourced from official token files, never invented.
 
-## When you use this skill
+Repo: https://github.com/lobsterbs/m3-expressive-web
+Docs: https://m3-expressive-web-docs.onrender.com
 
-- The user wants Material 3 / Material You / M3 Expressive UI on the web.
-- The user asks to theme an app with --md-sys-* tokens or Material Theme
-  Builder exports.
-- The user wants to port a component not yet in the library.
-- You need to verify an M3 spec value (never guess — see Exact values).
+## THE EXACT-VALUES CONTRACT (non-negotiable)
 
-## Exact values (never approximate these)
+1. Never invent spec values. Every value must come from an official source:
+   m3.material.io, the MDC-Android token files, or the M3 Design Kit.
+2. Unverifiable values get a comment: `// TODO(spec): <source-url>` — never a guess.
+3. Component motion always uses the two FAST spring tokens.
+4. Prefer Google Sans Flex for expressive typography (verified axes: wght 100-900, opsz 14-48).
 
-State layer opacities: hover 8%, focus 10%, pressed 10%, dragged 16%,
-hover+focus 12%.
+## Exact values — motion (M3 Expressive spring scheme)
 
-Elevation levels: 0 none, 1=1dp, 2=3dp, 3=6dp, 4=8dp, 5=12dp. Surface tint
-is deprecated.
+Canonical spring constants (damping / stiffness), shared by MDC-Android
+motion tokens and Compose MotionScheme.expressive():
 
-Corner scale: none 0, extra-small 4, small 8, medium 12, large 16,
-extra-large 28, extra-extra-large 48, full 9999px.
+| Token          | Damping | Stiffness | ~Settle  |
+|----------------|---------|-----------|----------|
+| fast-spatial   | 0.90    | 1400      | ~233ms   |
+| fast-effects   | 1.00    | 3800      | ~120ms   |
+| default-spatial| 0.90    | 700       | ~317ms   |
+| default-effects| 1.00    | 1600      | ~170ms   |
+| slow-spatial   | 0.90    | 300       | ~487ms   |
+| slow-effects   | 1.00    | 800       | ~250ms   |
 
-Motion springs (canonical, from MDC-Android tokens.xml, shared with Compose
-MotionScheme.expressive()):
+**Rule: all component motion uses fast-spatial / fast-effects.**
+The library samples the damped-harmonic-oscillator response into CSS `linear()`
+curves and exposes them as `--md-sys-motion-*` custom properties.
 
-| Spring | Damping | Stiffness | Use |
-| --- | --- | --- | --- |
-| fast-spatial | 0.9 | 1400 | position/shape of small components |
-| fast-effects | 1.0 | 3800 | color/opacity of small components |
-| default-spatial | 0.9 | 700 | partial-screen (sheets, drawers) |
-| default-effects | 1.0 | 1600 | partial-screen effects |
-| slow-spatial | 0.9 | 300 | full-screen |
-| slow-effects | 1.0 | 800 | full-screen effects |
+## Exact values — state, elevation, shape
 
-All component motion uses the two fast tokens (aliases
---md-sys-motion-spring-spatial / -effects). Curves are pre-generated CSS
-linear() in src/tokens/m3-tokens.css; regenerate with springToLinear().
+State layer opacities (content layered over container):
+hover 8% · focus 10% · pressed 10% · dragged 16% · hover+focus 12%.
 
-## Using the components
+Elevation levels 0-5: 0 / 1 / 3 / 6 / 8 / 12 dp shadow.
 
-Import once, then use the custom elements anywhere:
+Corner scale: 4 / 8 / 12 / 16 / 28 / 48 dp + full (pill).
+M3 Expressive adds 35 shape morphs (cookie, clover, flower, etc.);
+shapes are stored as normalized point sequences and morphed via WAAPI.
 
-    import 'm3-expressive-web/src/index.ts';
+## Using the library
 
-    <md-filled-button>Save</md-filled-button>
-    <md-button-group>...</md-button-group>
-    <md-loading-indicator></md-loading-indicator>
-    <md-fab-menu label="Create">...</md-fab-menu>
-    <md-split-button variant="filled">Send</md-split-button>
-    <md-toolbar><span slot="start">Inbox</span></md-toolbar>
-    <md-slider></md-slider>
-    <md-linear-wavy-progress></md-linear-wavy-progress>
+```ts
+import 'm3-expressive-web'; // injects tokens, registers all components
+```
 
-## Theming
+```html
+<md-filled-button>Save</md-filled-button>
+<md-button-group><md-button-group-segment selected>Day</md-button-group-segment></md-button-group>
+<md-fab-menu><md-fab-menu-item icon="photo">Add photo</md-fab-menu-item></md-fab-menu>
+<md-split-button><md-filled-button>Save</md-filled-button></md-split-button>
+<md-loading-indicator></md-loading-indicator>
+<md-wavy-progress value="0.6"></md-wavy-progress>
+<md-slider min="0" max="100" value="40"></md-slider>
+```
 
-Two token tiers: --md-sys-* (system, at :root) and --md-comp-*
-(per-component). Export a scheme from Material Theme Builder and map roles
-to --md-sys-color-*; both light and dark values ship in the baseline
-m3-tokens.css (which doubles as a checklist of consumed roles).
+Ported: common buttons (5 variants), button-group, FAB, FAB menu, split
+button, loading indicator, wavy progress (linear/circular), slider, toolbar.
+Primitives: md-state-layer, md-ripple, md-elevation, md-focus-ring.
 
-## Extending / porting a new component
+## Theming (two-tier tokens)
 
-Follow the repo's AGENTS.md contract strictly:
+```css
+:root { --md-sys-primary: #006A6A; }             /* system tier: retheme app-wide */
+md-filled-button { --md-comp-filled-button-container-color: var(--md-sys-tertiary); }
+```
 
-1. Read src/internal/interactive.ts and components/button/md-button-base.ts —
-   the InteractiveController pattern is the contract (state layer + ripple +
-   focus ring, never re-implement pointer/focus logic).
-2. Style ONLY from tokens; every state (hover/focus/pressed/disabled) styled.
-3. Motion only via --md-sys-motion-spring-* tokens; legacy easing is
-   spec-parity only.
-4. prefers-reduced-motion branch is mandatory; keyboard activation and ARIA
-   are mandatory.
-5. Unverifiable spec values get a TODO(spec) comment with the spec URL —
-   never invent values. Verify via m3.material.io (JS-rendered; scrape with
-   waitFor 5000+) or canonical token sources (MDC-Android tokens.xml,
-   Compose source).
-6. Export from src/index.ts and add a demo section in demo/index.html.
+Typography: use Google Sans Flex (open-sourced 2025, OFL).
+Load `Google+Sans+Flex:opsz,wght@14..48,100..900`; self-host via
+`@fontsource-variable/google-sans-flex`. Weights: 400 body, 500 labels,
+600 emphasis, 700-900 display. See docs site → Typography.
 
-## Reference files in the repo
+## When porting new components
 
-- AGENTS.md — full contributor/AI contract, research workflow
-- docs/theming.md — token tiers, Theme Builder mapping
-- docs/architecture.md — spec-to-web translation map
-- src/tokens/m3-tokens.css — all tokens + generated spring curves
-- src/motion/springs.ts — spring constants and linear() generator
-- src/shape/shapes.ts — shape library and morph helper
+1. Search for existing implementations first (matraic/m3e, material-esm/material, @banegasn/components).
+2. Extract exact values from m3.material.io and MDC-Android token files.
+3. Use the four primitives + InteractiveController for interactions.
+4. Motion via the FAST spring tokens only; state layers at exact opacities.
+5. Mark anything unverifiable `TODO(spec)`.
