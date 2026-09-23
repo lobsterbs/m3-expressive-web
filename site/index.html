@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Material 3 Expressive for the web — m3-expressive-web</title><meta name="description" content="Community port of Material 3 Expressive for the web with exact spec values: spring motion, shape morphing, state layers, tokens.">
-<link rel="stylesheet" href="styles.css">
-<style>.brand{color:inherit}</style></head><body>
+<title>Material 3 Expressive for the web — m3-expressive-web</title><meta name="description" content="Community port of Material 3 Expressive for the web with exact spec values.">
+<link rel="stylesheet" href="styles.css"></head><body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="topbar"><a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="270" height="40" viewBox="0 0 270 40" role="img" aria-label="m3-expressive-web"><path d="M8 20c0-6.6 5.4-12 12-12s12 5.4 12 12-5.4 12-12 12S8 26.6 8 20z" fill="#6750A4"/><path d="M50 8h20v24H50z" rx="4" fill="#EADDFF"/><rect x="50" y="8" width="20" height="24" rx="4" fill="#7D5260"/><path d="M96 8c4 0 6 2 8 4s-4 2-8 6-8 2-8-4 4-6 8-6z" fill="#6750A4" opacity=".7"/><path d="M92 20c0-5 3-9 8-9s8 4 8 9-3 9-8 9-8-4-8-9z" fill="none" stroke="#6750A4" stroke-width="2"/><circle cx="126" cy="20" r="12" fill="#CCC2DC"/><text x="150" y="26" font-family="Roboto,sans-serif" font-size="16" font-weight="500" fill="currentColor">m3-expressive-web</text></svg></a>
+<header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a>
 <nav aria-label="Sections">
-<a href="index.html">Home</a><a href="getting-started.html">Get started</a><a href="foundations.html">Foundations</a><a href="components.html">Components</a>
+<a href="index.html">Home</a><a href="getting-started.html">Get started</a><a href="foundations.html">Foundations</a><a href="components.html" aria-current="page">Components</a>
 </nav></header><main id="main"><section class="hero">
 <p class="eyebrow">Community port · exact spec values</p>
 <h1>Material 3 Expressive, finally on the web.</h1>
@@ -23,16 +22,145 @@
 <div class="grid">
 <div class="card" data-search><h3><a href="foundations.html#color">Color</a></h3><p>Roles, tokens, and dynamic color — the two-tier <code>--md-sys-*</code> / <code>--md-comp-*</code> system.</p></div>
 <div class="card" data-search><h3><a href="foundations.html#typography">Typography</a></h3><p>15 styles across display, headline, title, body, and label scales.</p></div>
-<div class="card" data-search><h3><a href="foundations.html#shape">Shape</a></h3><p>The corner scale, all 35 M3 shapes, and shape morphing.</p></div>
+<div class="card" data-search><h3><a href="foundations.html#shape">Shape</a></h3><p>The corner scale, the 35 shape morphs, and shape morphing.</p></div>
 <div class="card" data-search><h3><a href="foundations.html#motion">Motion</a></h3><p>The Expressive spring scheme — exact damping &amp; stiffness, as CSS <code>linear()</code> curves.</p></div>
 <div class="card" data-search><h3><a href="foundations.html#elevation">Elevation</a></h3><p>Levels 0–5 (0/1/3/6/8/12dp) and surface tint.</p></div>
 <div class="card" data-search><h3><a href="foundations.html#state-layers">State layers</a></h3><p>Hover 8%, focus 10%, pressed 10%, dragged 16%.</p></div>
 </div>
-<h2>All components</h2>
+<h2>All 33 components</h2>
 <p><label><input class="search" type="search" placeholder="Search components…" aria-label="Search components"></label></p>
-<div class="grid" id="comp-grid"><!-- filled by main.js from components data --></div>
-<noscript><p>Enable JavaScript for the searchable component index, or open <a href="components.html">the full component reference</a>.</p></noscript>
-</div></main>
+<div class="grid"><div class="comp" data-search>
+<h3><a href="components.html#common-buttons">Common buttons</a></h3>
+<p>The primary M3 action component: five variants — filled, filled tonal, outlined, elevated, and text — with expressive state layers, ripple, and FAST-token spring motion on press.</p>
+<span class="pill ported">ported</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#button-group">Button group</a></h3>
+<p>A connected row of related buttons (segments) that can act as a toggle group or split actions.</p>
+<span class="pill ported">ported</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#fab">FAB (floating action button)</a></h3>
+<p>A high-emphasis action button in three sizes (small/default/large) plus an extended variant.</p>
+<span class="pill ported">ported</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#fab-menu">FAB menu</a></h3>
+<p>Expressive-new: a FAB that expands into a radial or stacked menu of related quick actions, each entering with staggered fast-spatial springs.</p>
+<span class="pill ported">ported</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#icon-button">Icon buttons</a></h3>
+<p>Compact icon-only actions: standard, filled, and tonal variants plus toggle states.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#split-button">Split button</a></h3>
+<p>Expressive-new: a button with a primary action plus an attached dropdown chevron for alternative actions.</p>
+<span class="pill ported">ported</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#segmented-button">Segmented buttons</a></h3>
+<p>A row of connected segments for selecting one (or more) options from a compact set; the connected twin of button group.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#chips">Chips (assist / filter / input)</a></h3>
+<p>Compact elements representing inputs, attributes, or actions: assist, filter, input (with suggestion), and (Expressive) elevated filter chips with dynamic height.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#cards">Cards</a></h3>
+<p>Elevated/filled/outlined containers for grouped content.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#dialogs">Dialogs</a></h3>
+<p>Modal containers for critical decisions or short forms.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#snackbars">Snackbars</a></h3>
+<p>Transient bottom messages with an optional action and dismiss icon; the mobile pattern for lightweight feedback.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#banner">Banner</a></h3>
+<p>A prominent container below the app bar for important, dismissible messages with 1–2 actions.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#loading-indicator">Loading indicator</a></h3>
+<p>Expressive-new: a circular indicator that morphs into a wavy, animated form while loading — the flagship Expressive motion demo.</p>
+<span class="pill ported">ported</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#progress">Progress indicators (linear / circular / wavy)</a></h3>
+<p>Deterministic and indeterminate progress.</p>
+<span class="pill ported">ported</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#badge">Badge</a></h3>
+<p>Small dynamic indicator for status, count, or presence, docked to icons/navigation.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#bottom-sheet">Bottom sheet</a></h3>
+<p>Anchored-bottom surface with three variants (modal, standard, expanded) using drag-to-resize gestures.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#carousel">Carousel</a></h3>
+<p>Expressive hero component: a horizontal scroller with dynamic-width items, hero layouts (multi-browse, emphasized), and spring fling physics.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#divider">Divider</a></h3>
+<p>A 1dp hairline separating grouped content; inset variants align with content padding.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#list">List</a></h3>
+<p>Rows of related content: one-to-three lines with leading/trailing content, avatars, and expressive leading icons.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#top-app-bar">Top app bar</a></h3>
+<p>Header surface for navigation and actions; Expressive replaces the centered-title two-row layout with flexible emphasis options.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#bottom-app-bar">Bottom app bar</a></h3>
+<p>Bottom navigation surface paired with an attached or inset FAB.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#navigation-bar">Navigation bar</a></h3>
+<p>3–5 destination bottom navigation with active-indicator pills and icon+label pairs.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#navigation-rail">Navigation rail</a></h3>
+<p>Navigation-bar pattern for tablet/expanded screens; menu icon toggles to a navigation drawer.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#navigation-drawer">Navigation drawer</a></h3>
+<p>Side sheet with navigation items (and optional headers/badges); modal variant has scrim.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#tabs">Tabs / navigation tab</a></h3>
+<p>Horizontal content switchers with primary/secondary styles and expressive indicator motion (fixed vs scrolling).</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#search">Search bar & search view</a></h3>
+<p>Expressive search: a full-width pill search bar with menu actions, expanding into a scrollable search view.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#menus">Menus (dropdown / exposed)</a></h3>
+<p>Lists of menu items in a surface; Expressive adds exposed-dropdown menus (dock to a field) and expressive item morphing.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#tooltips">Tooltips</a></h3>
+<p>Short informative text on hover/long-press of a target; plain and rich (icon+text) variants.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#slider">Slider</a></h3>
+<p>Continuous or discrete selection on a track with handle, stop indicators, and value labels.</p>
+<span class="pill ported">ported</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#switch">Switch</a></h3>
+<p>A binary toggle with thumb and track; Expressive adds icon morphs on the thumb between checked/unchecked states.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#text-fields">Text fields</a></h3>
+<p>Filled and outlined inputs with floating labels, supporting text, and trailing icons.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#date-pickers">Date & time pickers</a></h3>
+<p>Calendar and clock selection surfaces in dialog or embedded form.</p>
+<span class="pill roadmap">roadmap</span></div>
+<div class="comp" data-search>
+<h3><a href="components.html#toolbar">Toolbar</a></h3>
+<p>Expressive-new: a container for arranging related action items (buttons, icon buttons) with connected shape language.</p>
+<span class="pill ported">ported</span></div></div></main>
 <footer><p>A community port of Material 3 Expressive for the web — exact spec values only.</p>
-<p><a href="https://github.com/lobsterbs/m3-expressive-web">GitHub</a><a href="https://m3.material.io">Material 3 spec</a><a href="https://github.com/material-components/material-components-android/blob/master/docs/theming/Motion.md">MDC-Android motion tokens</a></p>
+<p><a href="https://github.com/lobsterbs/m3-expressive-web">GitHub</a><a href="https://m3.material.io">Material 3 spec</a></p>
 </footer><script src="main.js"></script></body></html>
