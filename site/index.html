@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Material 3 Expressive for the web — m3-expressive-web</title><meta name="description" content="Community port of Material 3 Expressive for the web with exact spec values: spring motion, shape morphing, state layers, tokens.">
+<link rel="stylesheet" href="styles.css">
+<style>.brand{color:inherit}</style></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="270" height="40" viewBox="0 0 270 40" role="img" aria-label="m3-expressive-web"><path d="M8 20c0-6.6 5.4-12 12-12s12 5.4 12 12-5.4 12-12 12S8 26.6 8 20z" fill="#6750A4"/><path d="M50 8h20v24H50z" rx="4" fill="#EADDFF"/><rect x="50" y="8" width="20" height="24" rx="4" fill="#7D5260"/><path d="M96 8c4 0 6 2 8 4s-4 2-8 6-8 2-8-4 4-6 8-6z" fill="#6750A4" opacity=".7"/><path d="M92 20c0-5 3-9 8-9s8 4 8 9-3 9-8 9-8-4-8-9z" fill="none" stroke="#6750A4" stroke-width="2"/><circle cx="126" cy="20" r="12" fill="#CCC2DC"/><text x="150" y="26" font-family="Roboto,sans-serif" font-size="16" font-weight="500" fill="currentColor">m3-expressive-web</text></svg></a>
+<nav aria-label="Sections">
+<a href="index.html">Home</a><a href="getting-started.html">Get started</a><a href="foundations.html">Foundations</a><a href="components.html">Components</a>
+</nav></header><main id="main"><section class="hero">
+<p class="eyebrow">Community port · exact spec values</p>
+<h1>Material 3 Expressive, finally on the web.</h1>
+<p class="lead">Google never shipped the Expressive update to Material Web Components. This port brings the new motion scheme, shape morphing, and expressive components to the web — with <strong>exact values from the canonical token sources</strong>, never invented ones.</p>
+<div class="badges">
+<img src="https://img.shields.io/github/stars/lobsterbs/m3-expressive-web?style=flat-square&logo=github&label=stars" alt="GitHub stars">
+<img src="https://img.shields.io/github/forks/lobsterbs/m3-expressive-web?style=flat-square&logo=github&label=forks" alt="GitHub forks">
+<img src="https://img.shields.io/github/last-commit/lobsterbs/m3-expressive-web?style=flat-square" alt="Last commit">
+<img src="https://img.shields.io/badge/spec-exact%20values-6750A4?style=flat-square" alt="Exact spec values">
+</div>
+<p><button class="m3" onclick="location.href='getting-started.html'">Get started</button></p>
+</section>
+<h2>Foundations</h2>
+<div class="grid">
+<div class="card" data-search><h3><a href="foundations.html#color">Color</a></h3><p>Roles, tokens, and dynamic color — the two-tier <code>--md-sys-*</code> / <code>--md-comp-*</code> system.</p></div>
+<div class="card" data-search><h3><a href="foundations.html#typography">Typography</a></h3><p>15 styles across display, headline, title, body, and label scales.</p></div>
+<div class="card" data-search><h3><a href="foundations.html#shape">Shape</a></h3><p>The corner scale, all 35 M3 shapes, and shape morphing.</p></div>
+<div class="card" data-search><h3><a href="foundations.html#motion">Motion</a></h3><p>The Expressive spring scheme — exact damping &amp; stiffness, as CSS <code>linear()</code> curves.</p></div>
+<div class="card" data-search><h3><a href="foundations.html#elevation">Elevation</a></h3><p>Levels 0–5 (0/1/3/6/8/12dp) and surface tint.</p></div>
+<div class="card" data-search><h3><a href="foundations.html#state-layers">State layers</a></h3><p>Hover 8%, focus 10%, pressed 10%, dragged 16%.</p></div>
+</div>
+<h2>All components</h2>
+<p><label><input class="search" type="search" placeholder="Search components…" aria-label="Search components"></label></p>
+<div class="grid" id="comp-grid"><!-- filled by main.js from components data --></div>
+<noscript><p>Enable JavaScript for the searchable component index, or open <a href="components.html">the full component reference</a>.</p></noscript>
+</div></main>
+<footer><p>A community port of Material 3 Expressive for the web — exact spec values only.</p>
+<p><a href="https://github.com/lobsterbs/m3-expressive-web">GitHub</a><a href="https://m3.material.io">Material 3 spec</a><a href="https://github.com/material-components/material-components-android/blob/master/docs/theming/Motion.md">MDC-Android motion tokens</a></p>
+</footer><script src="main.js"></script></body></html>

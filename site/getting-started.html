@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getting started — m3-expressive-web</title><meta name="description" content="Install, use, and configure m3-expressive-web.">
+<link rel="stylesheet" href="styles.css">
+<style>.brand{color:inherit}</style></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="270" height="40" viewBox="0 0 270 40" role="img" aria-label="m3-expressive-web"><path d="M8 20c0-6.6 5.4-12 12-12s12 5.4 12 12-5.4 12-12 12S8 26.6 8 20z" fill="#6750A4"/><path d="M50 8h20v24H50z" rx="4" fill="#EADDFF"/><rect x="50" y="8" width="20" height="24" rx="4" fill="#7D5260"/><path d="M96 8c4 0 6 2 8 4s-4 2-8 6-8 2-8-4 4-6 8-6z" fill="#6750A4" opacity=".7"/><path d="M92 20c0-5 3-9 8-9s8 4 8 9-3 9-8 9-8-4-8-9z" fill="none" stroke="#6750A4" stroke-width="2"/><circle cx="126" cy="20" r="12" fill="#CCC2DC"/><text x="150" y="26" font-family="Roboto,sans-serif" font-size="16" font-weight="500" fill="currentColor">m3-expressive-web</text></svg></a>
+<nav aria-label="Sections">
+<a href="index.html">Home</a><a href="getting-started.html">Get started</a><a href="foundations.html">Foundations</a><a href="components.html">Components</a>
+</nav></header><main id="main"><h1>Getting started</h1>
+<h2>Where to get it</h2>
+<p>Clone the repo (npm package publishing is on the roadmap):</p>
+<pre><code>git clone https://github.com/lobsterbs/m3-expressive-web.git
+cd m3-expressive-web
+npm install
+npm run dev   # serves demo/index.html with all components</code></pre>
+<h2>How to use it</h2>
+<p>Import the library entry point (it injects the token stylesheet as a side effect), then use the custom elements:</p>
+<pre><code>import 'm3-expressive-web'; // or ./src/index.ts from the repo
+
+&lt;md-filled-button&gt;Save&lt;/md-filled-button&gt;
+&lt;md-fab-menu&gt;…&lt;/md-fab-menu&gt;</code></pre>
+<p>Or use the primitives directly:</p>
+<pre><code>import '@internal/state-layer.js';
+import '@motion/springs.js'; // M3_SPRINGS constants + springToLinear()</code></pre>
+<h2>How to configure it</h2>
+<p>Everything is driven by two token tiers. Override system tokens to retheme globally:</p>
+<pre><code>:root {
+  --md-sys-primary: #006A6A;          /* retheme: your brand primary */
+  --md-sys-motion-fast-spatial-duration: 233ms;
+}
+/* or scope per-component */
+md-filled-button {
+  --md-comp-filled-button-container-color: var(--md-sys-tertiary);
+}</code></pre>
+<p>See <a href="foundations.html">Foundations</a> for every token, and <a href="components.html">Components</a> for per-component configuration.</p>
+<h2>The exact-values contract</h2>
+<p>Every value in this library is sourced from official Material 3 / MDC-Android token files. Anything unverifiable is marked <code>// TODO(spec): &lt;url&gt;</code> in the source — never invented. AI agents: see <code>AGENTS.md</code> and the skill on the <a href="https://github.com/lobsterbs/m3-expressive-web/tree/agent-skills">agent-skills branch</a>.</p>
+<h2>Demo</h2>
+<p>Open <code>demo/index.html</code> (or <code>npm run dev</code>) for a smoke-test page with all ported components.</p></main>
+<footer><p>A community port of Material 3 Expressive for the web — exact spec values only.</p>
+<p><a href="https://github.com/lobsterbs/m3-expressive-web">GitHub</a><a href="https://m3.material.io">Material 3 spec</a><a href="https://github.com/material-components/material-components-android/blob/master/docs/theming/Motion.md">MDC-Android motion tokens</a></p>
+</footer><script src="main.js"></script></body></html>
