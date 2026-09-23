@@ -37,6 +37,34 @@ oscillator and sampled into CSS linear() easing.
 | Slider | md-slider | expressive tall thumb, corner morph on drag, spring growth |
 | Wavy progress | md-linear-wavy-progress, md-circular-wavy-progress | amplitude grows with value, spring-eased |
 
+## AI agent skills 🤖
+
+This repo ships a ready-made **agent skill** on the
+[`agent-skills` branch](https://github.com/lobsterbs/m3-expressive-web/tree/agent-skills)
+that teaches AI coding agents to work with (and extend) this library. It's
+written in the **Agent Skills open standard** (SKILL.md with YAML frontmatter),
+so the same file works in Claude Code, OpenAI Codex CLI, Cursor, OpenCode,
+OpenClaw, and 20+ other agents — as well as Mistral and other SKILL.md-aware
+environments.
+
+The skill encodes:
+- the **exact-values contract** (state layer opacities, elevation levels,
+  corner scale, canonical spring constants — never approximate)
+- component usage and the InteractiveController extension pattern
+- the research workflow for verifying spec values (m3.material.io interactive
+  modules, MDC-Android tokens.xml, Compose source)
+
+Install for your agent:
+
+    git clone -b agent-skills https://github.com/lobsterbs/m3-expressive-web.git
+    cp -r m3-expressive-web/skills/m3-expressive-web ~/.claude/skills/     # Claude Code
+    cp -r m3-expressive-web/skills/m3-expressive-web ~/.codex/skills/      # Codex CLI
+    cp -r m3-expressive-web/skills/m3-expressive-web .cursor/skills/      # Cursor
+
+See [skills/README.md on the agent-skills branch](https://github.com/lobsterbs/m3-expressive-web/blob/agent-skills/skills/README.md)
+for per-agent details, and [AGENTS.md](AGENTS.md) for the full contributor
+contract the skill is derived from.
+
 ## Exact values used (audit trail)
 
 ### Motion springs (canonical, from MDC-Android tokens.xml)
@@ -68,10 +96,22 @@ none 0 · extra-small 4 · small 8 · medium 12 · large 16 · extra-large 28 ·
 
 ## Quick start
 
-    git clone https://github.com/lobsterbs/Material-You-3-Web.git
-    cd Material-You-3-Web
+    git clone https://github.com/lobsterbs/m3-expressive-web.git
+    cd m3-expressive-web
     npm install
     npm run dev        # opens the demo at localhost:8000/demo/
+
+    <script type="module" src="m3-expressive-web/src/index.ts"></script>
+
+    <md-filled-button>Save</md-filled-button>
+
+    <md-split-button variant="filled">
+      Send
+      <div slot="item">Send now</div>
+      <div slot="item">Schedule for later</div>
+    </md-split-button>
+
+    <md-slider value="60"></md-slider>
 
 ## Theming
 
@@ -80,14 +120,18 @@ Everything themes through CSS custom properties in two tiers: --md-sys-*
 Theme Builder (m3.material.io/foundations/customization) and map it to the
 tokens in src/tokens/m3-tokens.css. Full guide: docs/theming.md.
 
-## AI agent skills
+## Project layout
 
-The `agent-skills` branch packages this repo's knowledge as an Agent
-Skills open-standard SKILL.md that works in Claude Code, Codex CLI, Cursor,
-OpenCode, and other compatible agents:
-
-    git clone -b agent-skills https://github.com/lobsterbs/Material-You-3-Web.git
-    cp -r Material-You-3-Web/skills/m3-expressive-web ~/.claude/skills/
+    src/
+      tokens/m3-tokens.css      # design tokens: color, state, elevation, shape, motion, type
+      internal/                 # primitives + InteractiveController
+      motion/springs.ts         # canonical spring constants -> linear() generator
+      shape/shapes.ts           # expressive shape library + morph helper
+      components/<name>/        # one folder per component
+    demo/index.html             # smoke-test page
+    docs/                       # theming.md, architecture.md
+    AGENTS.md                   # contributor & AI agent guide
+    skills/ (agent-skills branch) # portable SKILL.md for AI agents
 
 ## Roadmap
 
