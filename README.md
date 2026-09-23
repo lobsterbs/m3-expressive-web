@@ -55,36 +55,102 @@ oscillator and sampled into CSS linear() easing.
 
 ## AI agent skills 🤖
 
-The skill ships in the repo at the two locations agents auto-discover — no install needed after cloning:
-
-- **Claude Code**: `.claude/skills/m3-expressive-web/SKILL.md` (project skill; validate with `claude plugin validate .claude/skills`)
-- **Codex CLI / IDE**: `.agents/skills/m3-expressive-web/SKILL.md` (scanned from your cwd up to the repo root; invoke via `/skills` or `$`)
-- **ChatGPT**: skills ship as plugins — type `@` to select one; the canonical copy and per-agent install paths live on the [agent-skills branch](https://github.com/lobsterbs/m3-expressive-web/tree/agent-skills)
-
-This repo ships a ready-made **agent skill** on the
-[`agent-skills` branch](https://github.com/lobsterbs/m3-expressive-web/tree/agent-skills)
-that teaches AI coding agents to work with (and extend) this library. It's
-written in the **Agent Skills open standard** (SKILL.md with YAML frontmatter),
-so the same file works in Claude Code, OpenAI Codex CLI, Cursor, OpenCode,
-OpenClaw, and 20+ other agents — as well as Mistral and other SKILL.md-aware
-environments.
+This repo ships a ready-made **agent skill** in the **Agent Skills open
+standard** (SKILL.md with YAML frontmatter), so the same file works in Claude
+Code, OpenAI Codex CLI, ChatGPT, Cursor, OpenCode, OpenClaw, Gemini CLI, and
+20+ other agents — including Mistral.
 
 The skill encodes:
 - the **exact-values contract** (state layer opacities, elevation levels,
   corner scale, canonical spring constants — never approximate)
-- 
-component usage and the InteractiveController extension pattern
+- component usage and the InteractiveController extension pattern
 - the research workflow for verifying spec values (m3.material.io interactive
   modules, MDC-Android tokens.xml, Compose source)
 
-Install for your agent:
+### Claude Code
 
-    git clone -b agent-skills https://github.com/lobsterbs/m3-expressive-web.git
-    cp -r m3-expressive-web/skills/m3-expressive-web ~/.claude/skills/     # Claude Code
-    cp -r m3-expressive-web/skills/m3-expressive-web ~/.codex/skills/      # Codex CLI
-    cp -r m3-expressive-web/skills/m3-expressive-web .cursor/skills/      # Cursor
+The repo is a **Claude Code plugin marketplace** — install without cloning:
 
-See [skills/README.md on the agent-skills branch](https://github.com/lobsterbs/m3-expressive-web/blob/agent-skills/skills/README.md)
+    /plugin marketplace add lobsterbs/m3-expressive-web
+    /plugin install m3-expressive-web@m3-expressive-web
+
+(Ships `.claude-plugin/marketplace.json` + a versioned `plugin.json` manifest;
+bump the plugin `version` on release so users get updates.)
+
+Claude Code also auto-detects the project skill at
+`.claude/skills/m3-expressive-web/SKILL.md` when you clone the repo —
+validate it with `claude plugin validate .claude/skills`.
+
+### Codex CLI / ChatGPT
+
+Codex auto-discovers `.agents/skills/m3-expressive-web/SKILL.md` from the repo
+root (invoke with `/skills` or `# m3-expressive-web
+
+<div align="center">
+
+![banner](docs/img/banner.svg)
+
+[![GitHub stars](https://img.shields.io/github/stars/lobsterbs/m3-expressive-web?style=for-the-badge&logo=github&label=Stars&color=6750A4)](https://github.com/lobsterbs/m3-expressive-web/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/lobsterbs/m3-expressive-web?style=for-the-badge&logo=github&label=Forks&color=7D5260)](https://github.com/lobsterbs/m3-expressive-web/forks)
+[![Last commit](https://img.shields.io/github/last-commit/lobsterbs/m3-expressive-web?style=for-the-badge&color=4F378B)](https://github.com/lobsterbs/m3-expressive-web/commits)
+[![Spec: exact values](https://img.shields.io/badge/spec-exact%20values-6750A4?style=for-the-badge&logo=materialdesign&logoColor=D0BCFF)](AGENTS.md)
+[![Docs](https://img.shields.io/badge/docs-m3--expressive--web--docs.onrender.com-1D192B?style=for-the-badge)](https://m3-expressive-web-docs.onrender.com)
+
+**📚 Documentation site:** <https://m3-expressive-web-docs.onrender.com> — every Material 3 component & foundation: about, when to use, how to use, how to configure, where to get it.
+
+</div>
+
+
+A community port of **Material 3 Expressive** to the web — Lit web components
+that work in any framework (React, Vue, Angular, Svelte, vanilla JS), built on
+exact values from the official spec and Google's token sources.
+
+> **Official status:** Google's Material Web Components are in maintenance mode
+> and M3 Expressive is not implemented on web by Google. This project ports the
+> expressive design language — state layers, spring motion physics, shape
+> morphing, and the expressive components — to the web as standards-based
+> custom elements.
+
+## Why this port (vs existing projects)
+
+| Project | Approach | Motion fidelity | Status |
+| --- | --- | --- | --- |
+| @material/web (official) | Lit, tokens, no expressive | none (legacy easing) | maintenance mode |
+| matraic/m3e | from-scratch, 40+ components | bezier approximations | active |
+| material
+-esm/material | fork of MWC | MWC easing | active |
+| **this project** | Lit + exact token pipeline | CSS linear() curves generated from the canonical M3 spring constants (damping 0.9/1.0, stiffness 1400–3800) | active |
+
+The differentiator: motion here is **numerically faithful**. The spring tokens
+come from MDC-Android's motion tokens.xml — the same constants Jetpack
+Compose's MotionScheme.expressive() uses — integrated from the damped harmonic
+oscillator and sampled into CSS linear() easing.
+
+## Components
+
+| Component | Element | Expressive features |
+| --- | --- | --- |
+| Common buttons | md-filled-button, md-filled-tonal-button, md-outlined-button, md-elevated-button, md-text-button | state layers (8/10/10/12%), ripple, corner morph on press |
+| Button group | md-button-group | "bump and react" neighbor flex, spring-driven |
+| Loading indicator | md-loading-indicator | shape-morph cycle through the shape library |
+| FAB menu | md-fab-menu | spring-staggered items, corner morph |
+| Split button | md-split-button | connected segments, chevron spring rotation, menu |
+| Toolbar | md-toolbar | corner morph on hover, slots for controls |
+| Slider | md-slider | expressive tall thumb, corner morph on drag, spring growth |
+| Wavy progress | md-linear-wavy-progress, md-circular-wavy-progress | amplitude grows with value, spring-eased |
+
+; in ChatGPT, skills ship as plugins —
+type `@` to select one).
+
+### Any other agent
+
+    git clone https://github.com/lobsterbs/m3-expressive-web.git
+    cp -r m3-expressive-web/.claude/skills/m3-expressive-web ~/.claude/skills/   # Claude Code (personal)
+    cp -r m3-expressive-web/.agents/skills/m3-expressive-web ~/.codex/skills/    # Codex CLI
+    cp -r m3-expressive-web/.agents/skills/m3-expressive-web ~/.cursor/skills/   # Cursor
+
+See [skills/README.md on the agent-skills
+branch](https://github.com/lobsterbs/m3-expressive-web/blob/agent-skills/skills/README.md)
 for per-agent details, and [AGENTS.md](AGENTS.md) for the full contributor
 contract the skill is derived from.
 
