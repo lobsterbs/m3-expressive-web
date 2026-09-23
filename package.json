@@ -1,0 +1,20 @@
+{
+  "name": "m3-expressive-web",
+  "version": "0.1.0",
+  "description": "Community port of Material 3 Expressive to the web: Lit web components, design tokens, state layers, spring motion, and shape morphing.",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wds --watch",
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "lit": "^3.1.0"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.4.0",
+    "typescript": "^5.5.0"
+  },
+  "license": "Apache-2.0"
+}
