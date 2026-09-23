@@ -15,7 +15,7 @@ exact values from the official spec and Google's token sources.
 | Project | Approach | Motion fidelity | Status |
 | --- | --- | --- | --- |
 | @material/web (official) | Lit, tokens, no expressive | none (legacy easing) | maintenance mode |
-| matraic/m3e | from-scratch, 40+ components | bezier approximations (e.g. 350ms cubic-bezier(0.27, 1.06, 0.18, 1)) | active |
+| matraic/m3e | from-scratch, 40+ components | bezier approximations | active |
 | material-esm/material | fork of MWC | MWC easing | active |
 | **this project** | Lit + exact token pipeline | CSS linear() curves generated from the canonical M3 spring constants (damping 0.9/1.0, stiffness 1400–3800) | active |
 
@@ -34,6 +34,8 @@ oscillator and sampled into CSS linear() easing.
 | FAB menu | md-fab-menu | spring-staggered items, corner morph |
 | Split button | md-split-button | connected segments, chevron spring rotation, menu |
 | Toolbar | md-toolbar | corner morph on hover, slots for controls |
+| Slider | md-slider | expressive tall thumb, corner morph on drag, spring growth |
+| Wavy progress | md-linear-wavy-progress, md-circular-wavy-progress | amplitude grows with value, spring-eased |
 
 ## Exact values used (audit trail)
 
@@ -50,10 +52,7 @@ oscillator and sampled into CSS linear() easing.
 
 Per the motion spec (m3.material.io/styles/motion/overview/how-it-works), all
 component motion is driven by two tokens: expressive fast spatial and
-expressive fast effects. Components here default to those two.
-
-Compose reference constants: Spring.DampingRatioLowBouncy = 0.75,
-DampingRatioMediumBouncy = 0.5, StiffnessMediumLow = 400, StiffnessMedium = 1500.
+expressive fast effects.
 
 ### State layer opacities
 
@@ -74,55 +73,70 @@ none 0 · extra-small 4 · small 8 · medium 12 · large 16 · extra-large 28 ·
     npm install
     npm run dev        # opens the demo at localhost:8000/demo/
 
-    <script type="module" src="m3-expressive-web/src/index.ts"></script>
-
-    <md-filled-button>Save</md-filled-button>
-
-    <md-split-button variant="filled">
-      Send
-      <div slot="item">Send now</div>
-      <div slot="item">Schedule for later</div>
-    </md-split-button>
-
-    <md-toolbar>
-      <span slot="start">Inbox</span>
-      <md-text-button slot="end">Archive</md-text-button>
-    </md-toolbar>
-
 ## Theming
 
 Everything themes through CSS custom properties in two tiers: --md-sys-*
 (system) and --md-comp-* (component overrides). Export a scheme from Material
 Theme Builder (m3.material.io/foundations/customization) and map it to the
-tokens in src/tokens/m3-tokens.css — that file doubles as a checklist of every
-consumed role. Full guide: docs/theming.md.
+tokens in src/tokens/m3-tokens.css. Full guide: docs/theming.md.
 
-## Project layout
+## AI agent skills
 
-    src/
-      tokens/m3-tokens.css      # design tokens: color, state, elevation, shape, motion, type
-      internal/                 # primitives + InteractiveController
-      motion/springs.ts         # canonical spring constants -> linear() generator
-      shape/shapes.ts           # expressive shape library + morph helper
-      components/<name>/        # one folder per component
-    demo/index.html             # smoke-test page
-    docs/                       # theming.md, architecture.md
-    AGENTS.md                   # contributor & AI agent guide
+The `agent-skills` branch packages this repo's knowledge as an Agent
+Skills open-standard SKILL.md that works in Claude Code, Codex CLI, Cursor,
+OpenCode, and other compatible agents:
+
+    git clone -b agent-skills https://github.com/lobsterbs/Material-You-3-Web.git
+    cp -r Material-You-3-Web/skills/m3-expressive-web ~/.claude/skills/
 
 ## Roadmap
 
-- [ ] Remaining expressive components: sliders, progress indicators, app bars, navigation bar/rail updates
+- [ ] Remaining expressive components: app bars, navigation bar/rail updates
 - [ ] Full 35-shape library (curated subset today)
 - [ ] Emphasized typography token pairs (15 styles)
 - [ ] Standard motion scheme variant (the second official scheme)
 - [ ] Framework wrapper docs (React/Vue/Angular usage notes)
+- [ ] Verify TODO(spec) values in slider/wavy progress against the Figma kit
+
+## Thanks 🙏
+
+This port stands on the shoulders of these projects and their maintainers:
+
+- **[material-components/material-web](https://github.com/material-components/material-web)**
+  (Apache-2.0) — the official Material Web Components whose token
+  architecture (two-tier --md-sys-*/--md-comp-* CSS custom properties),
+  primitive decomposition (ripple, elevation, focus ring), and naming scheme
+  this port directly follows. It entered maintenance mode; we're grateful for
+  the years of work by the Google team.
+- **[material-components/material-components-android](https://github.com/material-components/material-components-android)**
+  — source of the canonical motion spring constants (damping/stiffness in
+  motion/res/values/tokens.xml) used to generate our exact linear() curves.
+- **[matraic/m3e](https://github.com/matraic/m3e)** — the most complete
+  community M3 Expressive web port; its component coverage and shape-morph
+  approach (clip-path, normalized points) informed our implementation
+  choices, and its bezier approximations motivated our exact-values niche.
+- **[material-esm/material](https://github.com/material-esm/material)** —
+  community fork of Material Web keeping it alive; a useful cross-reference
+  for component behavior.
+- **[@banegasn/components](https://banegasn.dev/blog/m3-expressive-library/)**
+  — an early community M3 Expressive component set that validated the
+  community demand.
+- **Google's Material Design team** — for publishing the full M3 Expressive
+  spec, guidelines, and Figma Design Kit at [m3.material.io](https://m3.material.io/).
+- **[DeepWiki](https://deepwiki.com)** — repository documentation used to
+  mine the exact token names and internal architecture of material-web.
+- **[Firecrawl](https://firecrawl.dev)** — used to scrape the JS-rendered
+  spec pages on m3.material.io.
+
+If your project was used as a reference and you'd like it listed or removed,
+open an issue.
 
 ## Sources
 
 - M3 guidelines: https://m3.material.io/
 - M3 Expressive announcement: https://m3.material.io/blog/building-with-m3-expressive
 - Motion physics system: https://m3.material.io/styles/motion/overview/how-it-works
-- MDC-Android Motion tokens (canonical spring constants): https://github.com/material-components/material-components-android/blob/master/docs/theming/Motion.md
+- MDC-Android Motion tokens: https://github.com/material-components/material-components-android/blob/master/docs/theming/Motion.md
 - Architecture patterns adapted from material-components/material-web (Apache-2.0)
 
 ## License
