@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "name": "m3-expressive-web",
+  "description": "Material 3 Expressive for the web — exact spec values skill: spring motion, state layers, shape morphing, tokens, Google Sans Flex",
+  "version": "1.0.0",
+  "author": {
+    "name": "lobsterbs"
+  },
+  "homepage": "https://github.com/lobsterbs/m3-expressive-web",
+  "repository": "https://github.com/lobsterbs/m3-expressive-web",
+  "license": "MIT",
+  "keywords": ["material-3", "material-you", "design-system", "web-components", "typography"]
+}

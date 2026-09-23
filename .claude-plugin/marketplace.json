@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "m3-expressive-web",
+  "version": "1.0.0",
+  "description": "Material 3 Expressive for the web — skill and toolkit with exact spec values (spring motion, shape morphing, state layers, tokens)",
+  "owner": {
+    "name": "lobsterbs"
+  },
+  "plugins": [
+    {
+      "name": "m3-expressive-web",
+      "description": "Build, theme, and extend Material 3 Expressive web UIs with exact spec values: spring motion tokens, state layers, shape morphing, Google Sans Flex, and the m3-expressive-web component library",
+      "version": "1.0.0",
+      "author": {
+        "name": "lobsterbs"
+      },
+      "source": "./plugins/m3-expressive-web",
+      "category": "development"
+    }
+  ]
+}
