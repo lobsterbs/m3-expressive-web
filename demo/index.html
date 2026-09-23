@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>m3-expressive-web demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="module" src="../src/index.ts"></script>
+  <style>
+    body { font-family: Roboto, system-ui, sans-serif; background: var(--md-sys-color-surface); color: var(--md-sys-color-on-surface); margin: 0; padding: 40px; display: grid; gap: 48px; justify-items: start; }
+    h2 { font-weight: 500; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  </style>
+</head>
+<body>
+  <section>
+    <h2>Common buttons (with state layers + ripple)</h2>
+    <div class="row">
+      <md-filled-button>Filled</md-filled-button>
+      <md-filled-tonal-button>Tonal</md-filled-tonal-button>
+      <md-outlined-button>Outlined</md-outlined-button>
+      <md-elevated-button>Elevated</md-elevated-button>
+      <md-text-button>Text</md-text-button>
+      <md-filled-button disabled>Disabled</md-filled-button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Button group (bump &amp; react shape morph)</h2>
+    <md-button-group>
+      <md-filled-button>Day</md-filled-button>
+      <md-filled-button>Week</md-filled-button>
+      <md-filled-button>Month</md-filled-button>
+    </md-button-group>
+  </section>
+
+  <section>
+    <h2>Loading indicator (shape morph cycle)</h2>
+    <div class="row">
+      <md-loading-indicator></md-loading-indicator>
+      <md-loading-indicator style="width:24px;height:24px"></md-loading-indicator>
+    </div>
+  </section>
+
+  <section>
+    <h2>FAB menu (spring stagger)</h2>
+    <md-fab-menu label="Create">
+      <span slot="icon">+</span>
+      <md-filled-tonal-button slot="item">New file</md-filled-tonal-button>
+      <md-filled-tonal-button slot="item">New folder</md-filled-tonal-button>
+      <md-filled-tonal-button slot="item">Upload</md-filled-tonal-button>
+    </md-fab-menu>
+  </section>
+</body>
+</html>
