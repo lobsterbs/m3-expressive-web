@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google Sans Flex — m3-expressive-web</title>
+<meta name="description" content="Google Sans Flex: axes, weight combos, implementation, self-hosting, and performance for Material 3 Expressive on the web.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..900&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a>
+<nav aria-label="Sections">
+<a href="index.html">Home</a><a href="getting-started.html">Get started</a><a href="foundations.html">Foundations</a><a href="components.html">Components</a><a href="typography.html">Typography</a>
+</nav>
+</header><main id="main">
+<h1>Google Sans Flex</h1>
+<p class="lead">The typeface of Material 3 Expressive. Google Sans went open-source in 2025 as <strong>Google Sans Flex</strong> — a variable font now served on Google Fonts under the OFL license. This site itself uses it; here is everything we know, with values verified against the Google Fonts CSS API.</p>
+
+<h2 id="about">About</h2>
+<p>Google Sans descends from <em>Product Sans</em> (2015), the geometric typeface built from the redesigned Google logo to unify hundreds of product lockups. A decade of iteration on Pixel phones and Google apps culminated in Google Sans Flex, the open-source variable-font release — the letterforms behind Material 3 Expressive’s expressive typography. <a href="https://design.google/library/google-sans-flex-font">Google Design: Making Google Sans Flex</a></p>
+<p>Get it: <a href="https://fonts.google.com/specimen/Google+Sans+Flex">fonts.google.com/specimen/Google+Sans+Flex</a> (OFL).</p>
+
+<h2 id="axes">Axes — verified</h2>
+<p>Queried via the Google Fonts CSS API, Google Sans Flex is served in the <strong>normal</strong> style with two axes:</p>
+<table>
+<tr><th>Axis</th><th>Range</th><th>CSS property</th></tr>
+<tr><td><code>wght</code> (weight)</td><td><strong>100 – 900</strong></td><td><code>font-weight: 100 900</code></td></tr>
+<tr><td><code>opsz</code> (optical size)</td><td><strong>14 – 48</strong></td><td><code>font-optical-sizing: auto</code></td></tr>
+</table>
+<p>Browsers apply <code>opsz</code> automatically from the rendered font-size: small text gets sturdier, tighter forms; large headings get more refined, open ones. No media queries needed.</p>
+<pre><code>/* the exact stylesheet this site loads */
+https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..900&amp;display=swap</code></pre>
+<p><em>Some third-party builds (e.g. Fontsource mirrors) list additional axes. The Google Fonts API serves only <code>wght</code> + <code>opsz</code> — treat any other axis as unverified (<code>TODO(spec)</code>).</em></p>
+
+<h2 id="combos">Weight combos &amp; tips</h2>
+<p>With one variable file you get the whole 100–900 range. Our recommended combos for an M3 Expressive interface:</p>
+<table>
+<tr><th>Role</th><th>Weight</th><th>Notes</th></tr>
+<tr><td>Body text</td><td><strong>400</strong></td><td>Never lighter than 400 for UI copy; below that only for oversized display.</td></tr>
+<tr><td>Labels, chips, buttons, nav</td><td><strong>500</strong></td><td>M3’s label/title roles read best one step up from body.</td></tr>
+<tr><td>Emphasized titles, active nav</td><td><strong>600</strong></td><td>The “Expressive” headline voice — strong without shouting.</td></tr>
+<tr><td>Large display &lt; 45px</td><td><strong>700</strong></td><td>Pair with tighter letter-spacing (-0.5%).</td></tr>
+<tr><td>Hero display ≥ 45px</td><td><strong>800–900</strong></td><td>Let <code>opsz</code> refine the details; avoid 900 under 20px.</td></tr>
+<tr><td>Thin 100–300</td><td>display only</td><td>Decorative, large sizes only — fails contrast at text sizes.</td></tr>
+</table>
+<p>Combo tips:</p>
+<ul>
+<li><strong>Limit yourself to 2–3 weights per view</strong> (e.g. 400 + 500 + 700). A variable font makes extra weights free bytes-wise, not free attention-wise.</li>
+<li><strong>Weight jumps signal hierarchy</strong>: use ≥ 2 steps (400 → 600), never 400 → 500, which reads as rendering noise.</li>
+<li><strong>Animate weight, not just color:</strong> a hovered card can go 500 → 600 — transition <code>font-weight</code> (interpolable on variable fonts) with our fast-effects spring for a genuinely expressive micro-interaction.</li>
+<li><strong>Emphasized type</strong>: M3 Expressive pairs large 600–700 display with 400 body for its signature contrast.</li>
+</ul>
+
+<h2 id="implement">How to implement (CSS)</h2>
+<pre><code>/* 1. Load (see self-hosting below for offline) */
+&lt;link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..900&amp;display=swap"&gt;
+
+/* 2. Use — optical sizing is on by default */
+body {
+  font-family: 'Google Sans Flex', Roboto, system-ui, sans-serif;
+  font-weight: 400;
+}
+
+h1 { font-weight: 800; }          /* 100–900 all available */
+
+/* 3. Animate weight (variable fonts interpolate) */
+.tab { font-weight: 500; transition: font-weight var(--md-sys-motion-fast-effects-duration) var(--md-sys-motion-fast-effects); }
+.tab[aria-current="page"] { font-weight: 700; }
+
+/* 4. If you must pin optical size */
+.pin { font-variation-settings: 'opsz' 48; }</code></pre>
+
+<h2 id="self-host">How to self-host</h2>
+<p>Three ways, best first:</p>
+<h3>1. npm — Fontsource (recommended)</h3>
+<pre><code>npm install @fontsource-variable/google-sans-flex
+
+// once, in your app entry point:
+import '@fontsource-variable/google-sans-flex';   // wght axis, self-hosted
+
+// font-family is 'Google Sans Flex Variable'
+body { font-family: 'Google Sans Flex Variable', sans-serif; }</code></pre>
+<h3>2. Manual woff2 + @font-face</h3>
+<p>Download the woff2 subsets from <a href="https://fonts.google.com/specimen/Google+Sans+Flex">Google Fonts</a> (the CSS API response lists the <code>unicode-range</code> subset URLs), then:</p>
+<pre><code>@font-face {
+  font-family: 'Google Sans Flex';
+  font-style: normal;
+  font-weight: 100 900;             /* the full variable range */
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('/fonts/google-sans-flex.woff2') format('woff2');
+  /* optional: unicode-range per subset, as Google serves it */
+}
+
+/* Preload the latin subset so swap rarely flashes */
+&lt;link rel="preload" href="/fonts/google-sans-flex-latin.woff2" as="font" type="font/woff2" crossorigin&gt;</code></pre>
+<h3>3. CDN (what this site does)</h3>
+<pre><code>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..900&amp;display=swap"&gt;</code></pre>
+
+<h2 id="performance">Performance tips</h2>
+<ul>
+<li><code>font-display: swap</code> always — never block render on a font.</li>
+<li>Keep the system-ui fallback in the stack so metrics stay close (Roboto is metrically near-identical).</li>
+<li>Request only the axes you use: <code>opsz,wght@14..48,100..900</code> beats <code>*</code>.</li>
+<li>Preload only the latin subset; the API already <code>unicode-range</code>-splits everything else.</li>
+<li>Size-adjust the fallback (<code>@font-face { ... size-adjust: 100%; }</code>) to kill layout shift (CLS).</li>
+</ul>
+
+<h2 id="with-this-library">With this library</h2>
+<p>The library tokens expose type sizes (<code>--md-sys-type-*</code>); point the family at Google Sans Flex:</p>
+<pre><code>:root {
+  --md-sys-typescale-font: 'Google Sans Flex', Roboto, sans-serif;
+}
+/* emphasized pairs (wght 600–700 display variants) are a roadmap item */</code></pre>
+</main>
+<footer><p>A community port of Material 3 Expressive for the web — exact spec values only.</p>
+<p><a href="https://github.com/lobsterbs/m3-expressive-web">GitHub</a><a href="https://fonts.google.com/specimen/Google+Sans+Flex">Google Sans Flex</a><a href="https://m3.material.io">Material 3 spec</a></p>
+</footer><script src="main.js"></script></body></html>
