@@ -1,5 +1,20 @@
 # m3-expressive-web
 
+<div align="center">
+
+![banner](docs/img/banner.svg)
+
+[![GitHub stars](https://img.shields.io/github/stars/lobsterbs/m3-expressive-web?style=for-the-badge&logo=github&label=Stars&color=6750A4)](https://github.com/lobsterbs/m3-expressive-web/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/lobsterbs/m3-expressive-web?style=for-the-badge&logo=github&label=Forks&color=7D5260)](https://github.com/lobsterbs/m3-expressive-web/forks)
+[![Last commit](https://img.shields.io/github/last-commit/lobsterbs/m3-expressive-web?style=for-the-badge&color=4F378B)](https://github.com/lobsterbs/m3-expressive-web/commits)
+[![Spec: exact values](https://img.shields.io/badge/spec-exact%20values-6750A4?style=for-the-badge&logo=materialdesign&logoColor=D0BCFF)](AGENTS.md)
+[![Docs](https://img.shields.io/badge/docs-m3--expressive--web--docs.onrender.com-1D192B?style=for-the-badge)](https://m3-expressive-web-docs.onrender.com)
+
+**📚 Documentation site:** <https://m3-expressive-web-docs.onrender.com> — every Material 3 component & foundation: about, when to use, how to use, how to configure, where to get it.
+
+</div>
+
+
 A community port of **Material 3 Expressive** to the web — Lit web components
 that work in any framework (React, Vue, Angular, Svelte, vanilla JS), built on
 exact values from the official spec and Google's token sources.
