@@ -213,3 +213,15 @@ body.has-rail main,body.has-rail .topbar{margin-left:80px}
 /* Splash screen demo */
 .splash-demo{width:300px;height:200px;background:var(--md-sys-surface,#fffbfe);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;margin:auto;border:1px solid rgba(0,0,0,.08)}
 .splash-demo .logo{width:64px;height:64px;border-radius:50%;background:var(--md-sys-primary,#6750A4);color:var(--md-sys-on-primary,#fff);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:24px}
+
+/* ---- Rail/topbar hover choreography: title springs out of the expanding rail's way ---- */
+.topbar{transition:margin-left var(--md-sys-motion-fast-spatial-duration) var(--md-sys-motion-fast-spatial)}
+.rail:hover ~ .topbar{margin-left:220px}
+@media(max-width:900px){.rail:hover ~ .topbar{margin-left:0}}
+/* Fallback motion for browsers without linear() support (approximation, not a spec value) */
+@supports not (transition-timing-function: linear(0, 1)) {
+.rail{transition:width .233s cubic-bezier(.2,0,0,1)}
+.rail a{transition:width .233s cubic-bezier(.2,0,0,1),background .167s cubic-bezier(.2,0,0,1)}
+.rail .lbl{transition:opacity .167s ease}
+.topbar{transition:margin-left .233s cubic-bezier(.2,0,0,1)}
+}
