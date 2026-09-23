@@ -11,7 +11,6 @@
 </head><body class="has-rail">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="rail" aria-label="Site navigation">
-<div class="fab-placeholder"><button class="fab small" aria-label="Docs home" onclick="location.href='index.html'"><span class="msr">add</span></button></div>
 <a href="index.html"><span class="ic"><span class="msr">home</span></span><span class="lbl">Home</span></a>
 <a href="getting-started.html"><span class="ic"><span class="msr">rocket_launch</span></span><span class="lbl">Get started</span></a>
 <a href="foundations.html"><span class="ic"><span class="msr">palette</span></span><span class="lbl">Foundations</span></a>
@@ -21,7 +20,8 @@
 <header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a></header>
 <main id="main">
 <h1>Google Sans Flex</h1>
-<p class="lead">The typeface of Material 3 Expressive. Google Sans went open-source in 2025 as <strong>Google Sans Flex</strong> — a variable font now served on Google Fonts under the OFL license. This site itself uses it; here is everything we know, with values verified against the Google Fonts CSS API.</p>
+<p class="lead">The typeface of Material 3 Expressive. Google Sans went open-source in 2025 as <stron
+g>Google Sans Flex</strong> — a variable font now served on Google Fonts under the OFL license. This site itself uses it; here is everything we know, with values verified against the Google Fonts CSS API.</p>
 
 <h2 id="about">About</h2>
 <p>Google Sans descends from <em>Product Sans</em> (2015), the geometric typeface built from the redesigned Google l
@@ -42,7 +42,8 @@ https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..
 <p><em>Some third-party builds (e.g. Fontsource mirrors) list additional axes. The Google Fonts API serves only <code>wght</code> + <code>opsz</code> — treat any other axis as unverified (<code>TODO(spec)</code>).</em></p>
 
 <h2 id="combos">Weight combos &amp; tips</h2>
-<p>With one variable file you get the whole 100–900 range. Our recommended combos for an M3 Expressive interface:</p>
+<p>With one variable file you get the whole 100–90
+0 range. Our recommended combos for an M3 Expressive interface:</p>
 <table>
 <tr><th>Role</th><th>Weight</th><th>Notes</th></tr>
 <tr><td>Body text</td><td><strong>400</strong></td><td>Never lighter than 400 for UI copy; below that only for oversized display.</td></tr>
@@ -69,7 +70,8 @@ itle roles read best one step up from body.</td></tr>
 
 /* 2. Use — optical sizing is on by default */
 body {
-  font-family: 'Google Sans Flex', Roboto, system-ui, sans-serif;
+  font-family: 'Google Sans Flex', Roboto, system-ui, s
+ans-serif;
   font-weight: 400;
 }
 
@@ -115,7 +117,8 @@ body { font-family: 'Google Sans Flex Variable', sans-serif; }</code></pre>
 <h2 id="performance">Performance tips</h2>
 <ul>
 <li><code>font-display: swap</code> always — never block render on a font.</li>
-<li>Keep the system-ui fallback in the stack so metrics stay close (Roboto is metrically near-identical).</li>
+<li>Keep the system-ui fallba
+ck in the stack so metrics stay close (Roboto is metrically near-identical).</li>
 <li>Request only the axes you use: <code>opsz,wght@14..48,100..900</code> beats <code>*</code>.</li>
 <li>Preload only the latin subset; the API already <code>unicode-range</code>-splits everything else.</li>
 <li>Size-adjust the fallback (<code>@font-face { ... size-adjust:
