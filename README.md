@@ -31,7 +31,8 @@ exact values from the official spec and Google's token sources.
 | --- | --- | --- | --- |
 | @material/web (official) | Lit, tokens, no expressive | none (legacy easing) | maintenance mode |
 | matraic/m3e | from-scratch, 40+ components | bezier approximations | active |
-| material-esm/material | fork of MWC | MWC easing | active |
+| material
+-esm/material | fork of MWC | MWC easing | active |
 | **this project** | Lit + exact token pipeline | CSS linear() curves generated from the canonical M3 spring constants (damping 0.9/1.0, stiffness 1400–3800) | active |
 
 The differentiator: motion here is **numerically faithful**. The spring tokens
@@ -54,6 +55,12 @@ oscillator and sampled into CSS linear() easing.
 
 ## AI agent skills 🤖
 
+The skill ships in the repo at the two locations agents auto-discover — no install needed after cloning:
+
+- **Claude Code**: `.claude/skills/m3-expressive-web/SKILL.md` (project skill; validate with `claude plugin validate .claude/skills`)
+- **Codex CLI / IDE**: `.agents/skills/m3-expressive-web/SKILL.md` (scanned from your cwd up to the repo root; invoke via `/skills` or `$`)
+- **ChatGPT**: skills ship as plugins — type `@` to select one; the canonical copy and per-agent install paths live on the [agent-skills branch](https://github.com/lobsterbs/m3-expressive-web/tree/agent-skills)
+
 This repo ships a ready-made **agent skill** on the
 [`agent-skills` branch](https://github.com/lobsterbs/m3-expressive-web/tree/agent-skills)
 that teaches AI coding agents to work with (and extend) this library. It's
@@ -65,7 +72,8 @@ environments.
 The skill encodes:
 - the **exact-values contract** (state layer opacities, elevation levels,
   corner scale, canonical spring constants — never approximate)
-- component usage and the InteractiveController extension pattern
+- 
+component usage and the InteractiveController extension pattern
 - the research workflow for verifying spec values (m3.material.io interactive
   modules, MDC-Android tokens.xml, Compose source)
 
@@ -114,7 +122,8 @@ none 0 · extra-small 4 · small 8 · medium 12 · large 16 · extra-large 28 ·
     git clone https://github.com/lobsterbs/m3-expressive-web.git
     cd m3-expressive-web
     npm install
-    npm run dev        # opens the demo at localhost:8000/demo/
+    npm run 
+dev        # opens the demo at localhost:8000/demo/
 
     <script type="module" src="m3-expressive-web/src/index.ts"></script>
 
@@ -163,7 +172,8 @@ This port stands on the shoulders of these projects and their maintainers:
 
 - **[material-components/material-web](https://github.com/material-components/material-web)**
   (Apache-2.0) — the official Material Web Components whose token
-  architecture (two-tier --md-sys-*/--md-comp-* CSS custom properties),
+  architecture (two-tier 
+--md-sys-*/--md-comp-* CSS custom properties),
   primitive decomposition (ripple, elevation, focus ring), and naming scheme
   this port directly follows. It entered maintenance mode; we're grateful for
   the years of work by the Google team.
@@ -195,7 +205,8 @@ open an issue.
 - M3 guidelines: https://m3.material.io/
 - M3 Expressive announcement: https://m3.material.io/blog/building-with-m3-expressive
 - Motion physics system: https://m3.material.io/styles/motion/overview/how-it-works
-- MDC-Android Motion tokens: https://github.com/material-components/material-components-android/blob/master/docs/theming/Motion.md
+- MDC-Android Motion tokens: https://github.com/material-components/material-components-android/blob/master/docs/th
+eming/Motion.md
 - Architecture patterns adapted from material-components/material-web (Apache-2.0)
 
 ## License
