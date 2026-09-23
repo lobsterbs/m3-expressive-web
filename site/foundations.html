@@ -35,17 +35,20 @@ prefers-color-scheme</code>). Components consume only roles, so overriding one v
 <p><em>Emphasized token pairs for the 15 styles are a roadmap item.</em></p>
 <h2 id="shape">Shape</h2>
 <p>Corner scale: <strong>4 / 8 / 12 / 16 / 28 / 48 dp</strong>, plus full (pill). Expressive adds 35 shape morphs (e.g. cookie, clover, flower); this port stores shapes as normalized point sequences and interpolates with WAAPI. Try hovering:</p>
-<div class="shapes">
-<span class="shape-demo" style="border-radius:9999px"></span>
-<span class="shape-demo" style="border-radius:16px"></span>
-<span class="shape-demo" style="border-radius:28px"></span>
-<span class="shape-demo" style="border-radius:48px"></span>
+<div class="shapes" style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-end">
+<div class="morph-chip"><span class="shape-demo" data-shape="squircle" data-morph="cookie" tabindex="0"></span><small>squircle → cookie</small></div>
+<div class="morph-chip"><span class="shape-demo" data-shape="circle" data-morph="clover" tabindex="0"></span><small>circle → clover</small></div>
+<div class="morph-chip"><span class="shape-demo" data-shape="circle" data-morph="sunny" tabindex="0"></span><small>circle → sunny</small></div>
+<div class="morph-chip"><span class="shape-demo" data-shape="circle" data-morph="flower" tabindex="0"></span><small>circle → flower</small></div>
+<div class="morph-chip"><span class="shape-demo" data-shape="squircle" data-morph="puffy" tabindex="0"></span><small>squircle → puffy</small></div>
 </div>
+<p><small>Hover (or focus) any shape to morph — every shape is a normalized 96-point sequence, so clip-path interpolates 1:1 with the fast-effects spring. And press any button anywhere on this site: buttons morph to the cookie shape while pressed — the signature M3 Expressive interaction.</small></p>
 <p><a href="https://m3.material.io/styles/shape/shape-scale-tokens">Spec: shape scale</a></p>
 <h2 id="motion">Motion — the Expressive spring scheme</h2>
 <p>Expressive replaces easing curves with <strong>spring physics</strong>. Canonical constants (damping / stiffness), identical in MDC-Android <code>tokens.xml</code> and Compose <code>MotionScheme.expressive()</code>:</p>
 <table><tr>
-<th>Token</th><th>Damping</th><th>Stiffness</th><th>~Settle</th></tr>
+<
+th>Token</th><th>Damping</th><th>Stiffness</th><th>~Settle</th></tr>
 <tr><td>fast-spatial</td><td>0.90</td><td>1400</td><td>0.233s</td></tr>
 <tr><td>fast-effects</td><td>1.00</td><td>3800</td><td
 >0.167s</td></tr>
@@ -65,6 +68,7 @@ table>
 <p><a href="https://m3.material.io/foundations/interaction/states/state-layers">Spec: state layers</a></p>
 <h2 id="icons">Icons</h2>
 <p>M3 pairs fill
+
 
 ed and outlined icon families. Use Material Symbols with the M3 defaults (24dp, optical sizing on). <a href="https://m3.material.io/styles/icons/overview">Spec: icons</a></p>
 <h2 id="theming">Theming / configuration</h2>

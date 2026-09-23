@@ -1,8 +1,6 @@
-// demo component behaviors — exact springs, reduced-motion aware
-const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+// demo component behaviors — exact springs, reduced-motion awareconst RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// state-layer ripple on all demo interactive elements
-document.addEventListener('pointerdown', e => {
+// state-layer ripple on all demo interactive elementsdocument.addEventListener('pointerdown', e => {
   if (RM) return;
   const el = e.target.closest('.btn,.btngroup button,.fab,.iconbtn,.chip,.tabs button,.list-demo .li,.topbar a,.rail a,.pill');
   if (!el) return;
@@ -18,8 +16,7 @@ document.addEventListener('pointerdown', e => {
   setTimeout(()=>s.remove(), 700);
 });
 
-// button group / chips: toggle press state
-document.addEventListener('click', e => {
+// button group / chips: toggle press statedocument.addEventListener('click', e => {
   const seg = e.target.closest('.btngroup button');
   if (seg && seg.dataset.single !== undefined) {
     seg.parentElement.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed','false'));
@@ -30,6 +27,7 @@ document.addEventListener('click', e => {
   const iconb = e.target.closest('.iconbtn[aria-pressed]');
   if (iconb) iconb.setAttribute('aria-pressed', iconb.getAttribute('aria-pressed')!=='true');
   const sw = e.target.closest('.switch');
+
   if (sw) sw.setAttribute('aria-checked', sw.getAttribute('aria-checked')!=='true');
   const tab = e.target.closest('.tabs button');
   if (tab) { tab.parentElement.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected','false')); tab.setAttribute('aria-selected','true'); }
@@ -39,8 +37,7 @@ document.addEventListener('click', e => {
   if (arrow) { arrow.closest('.splitbtn').classList.toggle('open'); }
 });
 
-// slider: update fill % (active track), value label
-document.querySelectorAll('input.slider').forEach(sl => {
+// slider: update fill % (active track), value labeldocument.querySelectorAll('input.slider').forEach(sl => {
   const upd = () => {
     const pct = (sl.value - sl.min) / (sl.max - sl.min) * 100;
     sl.style.setProperty('--pct', pct + '%');
@@ -50,8 +47,7 @@ document.querySelectorAll('input.slider').forEach(sl => {
   sl.addEventListener('input', upd); upd();
 });
 
-// determinate progress demos: animate value with the fast-spatial spring feel
-document.querySelectorAll('.progress[data-auto]').forEach(p => {
+// determinate progress demos: animate value with the fast-spatial spring feeldocument.querySelectorAll('.progress[data-auto]').forEach(p => {
   if (RM) return;
   let v = 0;
   const tick = () => {
@@ -62,8 +58,7 @@ document.querySelectorAll('.progress[data-auto]').forEach(p => {
   if (!RM) requestAnimationFrame(tick);
 });
 
-// snackbar demo
-document.querySelectorAll('[data-snackbar]').forEach(b => {
+// snackbar demodocument.querySelectorAll('[data-snackbar]').forEach(b => {
   b.addEventListener('click', () => {
     const t = document.getElementById(b.dataset.snackbar);
     if (!t) return;
@@ -72,3 +67,76 @@ document.querySelectorAll('[data-snackbar]').forEach(b => {
     clearTimeout(t._to); t._to = setTimeout(()=>t.style.display='none', 3500);
   });
 });
+
+
+// ---- M3 Expressive shape morphs ----
+// Shapes are normalized 96-point sequences (equal-angle sampling) so clip-path
+// interpolates 1:1 across any shape pair — the same approach the library uses
+// for its shape tokens (point sequences + spring interpolation).
+(() => {
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const N = 96;
+  const radial = (depth, lobes, phase) => (t) => {
+    const r = 0.5 * (1 + depth * Math.cos(lobes * t + (phase || 0)));
+    return [0.5 + r * Math.cos(t), 0.5 + r * Math.sin(t)];
+  };
+  const superellipse = (n) => (t) => {
+    const c = Math.cos(t), s = Math.sin(t);
+    return [0.5 + 0.5 * Math.sign(c) * Math.pow(Math.abs(c), 2 / n),
+            0.5 + 0.5 * Math.sign(s) * Math.pow(Math.abs(s), 2 / n)];
+  };
+  const SHAPES = {
+    circle:    radial(0, 1, 0),
+    squircle:  superellipse(4),
+    rounded:   superellipse(2.5),
+    cookie:    radial(0.12, 12, 0),
+    softcookie:radial(0.05, 12, 0),
+    clover:    radial(0.18, 4, 0),
+    sunny:     radial(-0.28, 12, 0),
+    flower:    radial(0.12, 8, 0),
+    puffy:     radial(0.16, 4, Math.PI / 2),
+  };
+  const clip = (name) => {
+    const fn = SHAPES[name] || SHAPES.circle;
+    const pts = [];
+    for (let i = 0; i < N; i++) {
+      const p = fn((i / N) * 2 * Math.PI);
+      pts.push((p[0] * 100).toFixed(2) + '% ' + (p[1] * 100).toFixed(2) + '%');
+    }
+    return 'polygon(' + pts.join(',') + ')';
+  };
+  window.__m3eClip = clip;
+  const setShape = (el, s) => { el.style.clipPath = clip(s); };
+  document.querySelectorAll('[data-shape]').forEach(el => setShape(el, el.dataset.shape));
+
+  if (!RM) {
+    document.querySelectorAll('[data-morph]').forEach(el => {
+      const base = el.dataset.shape || 'squircle';
+      el.addEventListener('pointerenter', () => setShape(el, el.dataset.morph));
+      el.addEventListener('pointerleave', () => setShape(el, base));
+      el.addEventListener('focus', () => setShape(el, el.dataset.morph));
+      el.addEventListener('blur', () => setShape(el, base));
+    });
+    // the signature M3E press morph: buttons morph to cookie while pressed
+    const restore = (e) => {
+      const b = e.target.closest && e.target.closest('.btn,.fab,.iconbtn,.chip,.m3');
+      if (!b || !b._m3eBase) return;
+      b.style.clipPath = b._m3eBase;
+      b._m3eBase = null;
+    };
+    document.addEventListener('pointerdown', (e) => {
+      const b = e.target.closest && e.target.closest('.btn,.fab,.iconbtn,.chip,.m3');
+      if (!b || b.hasAttribute('data-noMorph')) return;
+      b._m3eBase = b.style.clipPath || '';
+      b.style.clipPath = clip('cookie');
+    });
+    document.addEventListener('pointerup', restore);
+    document.addEventListener('pointercancel', restore);
+    // cards morph softly on hover (rounded -> soft cookie)
+    document.querySelectorAll('.card').forEach(c => {
+      c.style.clipPath = clip('rounded');
+      c.addEventListener('pointerenter', () => setShape(c, 'softcookie'));
+      c.addEventListener('pointerleave', () => setShape(c, 'rounded'));
+    });
+  }
+})();

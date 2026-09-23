@@ -20,6 +20,7 @@
 
 
 
+
 order-left:1px solid var(--md-sys-outline)}
 .btngroup button[aria-pressed=true]{background:var(--md-sys-secondary-container);color:var(--md-sys-on-secondary-container)}
 .btngroup button:focus-visible{outline:2px solid var(--md-sys-primary);outline-offset:-2px}
@@ -83,6 +84,7 @@ chip
 /* ---- Badge ---- */
 .badge-anchor{position:relative;display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;background:var(--md-sys-surface-variant);border-radius:9999px}
 .badge{position:
+
 absolute;top:-4px;right:-4px;min-width:16px;height:16px;padding:0 4px;border-radius:9999px;background:var(--md-sys-error);color:var(--md-sys-on-error);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
 .badge.dot{min-width:0;width:8px;height:8px;padding:0}
 
@@ -153,7 +155,8 @@ absolute;top:-4px;right:-4px;min-width:16px;height:16px;padding:0 4px;border-rad
 var(--md-sys-on-surface) 8%,transparent)}
 .rail a[aria-current=page]{background:var(--md-sys-secondary-container);color:var(--md-sys-on-secondary-container)}
 .rail 
-.ic{width:24px;height:24px;flex:none;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.ic{width:
+24px;height:24px;flex:none;display:inline-flex;align-items:center;justify-content:center;padding:0}
 .rail .ic .msr{font-size:24px;line-height:1;display:block}
 .rail .lbl{opacity:0;transition:opacity var(--md-sys-motion-fast-effects-duration) var(--md-sys-motion-fast-effects)}
 .rail:hover .lbl{opacity:1}
@@ -192,7 +195,8 @@ body.has-rail main,body.has-rail .topbar{margin-left:80px}
 .datepick-demo .day.today{border:1px solid var(--md-sys-primary);color:var(--md-sys-primary)}
 
 /* Material Symbols Rounded icon font */
-.msr{font-family:'Material Symbols Rounded';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.msr{font-family:'Material Symbols Rounded';font-weight:normal;font-style:normal;font-size
+:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
 /* Time picker demo */
 .timepick-demo{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap}
 .timepick-demo .clock{width:240px;height:240px;border-radius:50%;background:var(--md-sys-surface-container,#f3edf7);position:relative;flex:0 0 auto}
@@ -225,3 +229,11 @@ body.has-rail main,body.has-rail .topbar{margin-left:80px}
 .rail .lbl{transition:opacity .167s ease}
 .topbar{transition:margin-left .233s cubic-bezier(.2,0,0,1)}
 }
+
+/* ---- M3 Expressive shape morphs ---- */
+[data-shape],[data-morph]{cursor:pointer}
+[data-shape].shape-demo,[data-morph].shape-demo{transition:clip-path var(--md-sys-motion-fast-effects-duration) var(--md-sys-motion-fast-effects)}
+.btn,.fab,.iconbtn,.chip,.m3{transition:clip-path var(--md-sys-motion-fast-effects-duration) var(--md-sys-motion-fast-effects)}
+.morph-chip{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.morph-chip small{font-size:11px;opacity:.7}
+.card{transition:clip-path var(--md-sys-motion-default-spatial-duration) var(--md-sys-motion-default-spatial)}
