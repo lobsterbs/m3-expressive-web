@@ -32,7 +32,8 @@ motion tokens and Compose MotionScheme.expressive():
 | fast-effects   | 1.00    | 3800      | ~120ms   |
 | default-spatial| 0.90    | 700       | ~317ms   |
 | default-effects| 1.00    | 1600      | ~170ms   |
-| slow-spatial   | 0.90    | 300       | ~487ms   |
+| slow-spatial   | 0.90    | 300 
+      | ~487ms   |
 | slow-effects   | 1.00    | 800       | ~250ms   |
 
 **Rule: all component motion uses fast-spatial / fast-effects.**
@@ -84,7 +85,8 @@ Load `Google+Sans+Flex:opsz,wght@14..48,100..900`; self-host via
 
 ## When porting new components
 
-1. Search for existing implementations first (matraic/m3e, material-esm/material, @banegasn/components).
+1. 
+Search for existing implementations first (matraic/m3e, material-esm/material, @banegasn/components).
 2. Extract exact values from m3.material.io and MDC-Android token files.
 3. Use the four primitives + InteractiveController for interactions.
 4. Motion via the FAST spring tokens only; state layers at exact opacities.
