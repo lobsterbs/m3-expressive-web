@@ -7,15 +7,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..900&display=swap">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="ui.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block">
 </head><body class="has-rail">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="rail" aria-label="Site navigation">
-<div class="fab-placeholder"><button class="fab small" aria-label="Docs home" onclick="location.href='index.html'">＋</button></div>
-<a href="index.html"><span class="ic">🏠</span><span class="lbl">Home</span></a>
-<a href="getting-started.html"><span class="ic">🚀</span><span class="lbl">Get started</span></a>
-<a href="foundations.html"><span class="ic">🎨</span><span class="lbl">Foundations</span></a>
-<a href="components.html"><span class="ic">🧩</span><span class="lbl">Components</span></a>
-<a href="typography.html" aria-current="page"><span class="ic">🔤</span><span class="lbl">Typography</span></a>
+<div class="fab-placeholder"><button class="fab small" aria-label="Docs home" onclick="location.href='index.html'"><span class="msr">add</span></button></div>
+<a href="index.html"><span class="ic"><span class="msr">home</span></span><span class="lbl">Home</span></a>
+<a href="getting-started.html"><span class="ic"><span class="msr">rocket_launch</span></span><span class="lbl">Get started</span></a>
+<a href="foundations.html"><span class="ic"><span class="msr">palette</span></span><span class="lbl">Foundations</span></a>
+<a href="components.html"><span class="ic"><span class="msr">extension</span></span><span class="lbl">Components</span></a>
+<a href="typography.html" aria-current="page"><span class="ic"><span class="msr">text_fields</span></span><span class="lbl">Typography</span></a>
 </nav>
 <header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a></header>
 <main id="main">
@@ -23,7 +24,8 @@
 <p class="lead">The typeface of Material 3 Expressive. Google Sans went open-source in 2025 as <strong>Google Sans Flex</strong> — a variable font now served on Google Fonts under the OFL license. This site itself uses it; here is everything we know, with values verified against the Google Fonts CSS API.</p>
 
 <h2 id="about">About</h2>
-<p>Google Sans descends from <em>Product Sans</em> (2015), the geometric typeface built from the redesigned Google logo to unify hundreds of product lockups. A decade of iteration on Pixel phones and Google apps culminated in Google Sans Flex, the open-source variable-font release — the letterforms behind Material 3 Expressive’s expressive typography. <a href="https://design.google/library/google-sans-flex-font">Google Design: Making Google Sans Flex</a></p>
+<p>Google Sans descends from <em>Product Sans</em> (2015), the geometric typeface built from the redesigned Google l
+ogo to unify hundreds of product lockups. A decade of iteration on Pixel phones and Google apps culminated in Google Sans Flex, the open-source variable-font release — the letterforms behind Material 3 Expressive’s expressive typography. <a href="https://design.google/library/google-sans-flex-font">Google Design: Making Google Sans Flex</a></p>
 <p>Get it: <a href="https://fonts.google.com/specimen/Google+Sans+Flex">fonts.google.com/specimen/Google+Sans+Flex</a> (OFL).</p>
 
 <h2
@@ -44,7 +46,8 @@ https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..
 <table>
 <tr><th>Role</th><th>Weight</th><th>Notes</th></tr>
 <tr><td>Body text</td><td><strong>400</strong></td><td>Never lighter than 400 for UI copy; below that only for oversized display.</td></tr>
-<tr><td>Labels, chips, buttons, nav</td><td><strong>500</strong></td><td>M3’s label/title roles read best one step up from body.</td></tr>
+<tr><td>Labels, chips, buttons, nav</td><td><strong>500</strong></td><td>M3’s label/t
+itle roles read best one step up from body.</td></tr>
 <tr><td>Emphasized titles, active nav</td><td><strong>600</strong></td><td>The “Expressive” headline voice — strong without shouting.</td></tr>
 <tr><td>Large display &lt; 45px</td><td><strong>700</strong></td><td>Pair with tighter letter-spacing (-0.5%).</td></tr>
 <tr><td>Hero display ≥ 45px</td><td><strong>800–900</strong></td><td>Let <code>opsz</code> refine the details; avoid 900 under 20px.</td></tr>
@@ -76,7 +79,8 @@ h1 { font-weight: 800; }          /* 100–900 all available */
 .tab { font-weight: 500; transition: font-weight var(--md-sys-motion-fast-effects-duration) var(--md-sys-motion-fast-effects); }
 .tab[aria-current="page"] { font-weight: 700; }
 
-/* 4. If you must pin optical size */
+/* 4. If you must pin opti
+cal size */
 .pin { font-variation-settings: 'opsz' 48; }</code></pre>
 
 <h2 id="self-host">How to self-host</h2>
@@ -114,7 +118,8 @@ body { font-family: 'Google Sans Flex Variable', sans-serif; }</code></pre>
 <li>Keep the system-ui fallback in the stack so metrics stay close (Roboto is metrically near-identical).</li>
 <li>Request only the axes you use: <code>opsz,wght@14..48,100..900</code> beats <code>*</code>.</li>
 <li>Preload only the latin subset; the API already <code>unicode-range</code>-splits everything else.</li>
-<li>Size-adjust the fallback (<code>@font-face { ... size-adjust: 100%; }</code>) to kill layout shift (CLS).</li>
+<li>Size-adjust the fallback (<code>@font-face { ... size-adjust:
+ 100%; }</code>) to kill layout shift (CLS).</li>
 </ul>
 
 <h2 id="with-this-library">With this library</h2>

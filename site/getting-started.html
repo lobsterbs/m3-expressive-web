@@ -6,15 +6,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..900&display=swap">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="ui.css">
-<style>.brand{color:inherit}</style></head><body class="has-rail">
+<style>.brand{color:inherit}</style><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block">
+</head><body class="has-rail">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="rail" aria-label="Site navigation">
-<div class="fab-placeholder"><button class="fab small" aria-label="Docs home" onclick="location.href='index.html'">＋</button></div>
-<a href="index.html"><span class="ic">🏠</span><span class="lbl">Home</span></a>
-<a href="getting-started.html" aria-current="page"><span class="ic">🚀</span><span class="lbl">Get started</span></a>
-<a href="foundations.html"><span class="ic">🎨</span><span class="lbl">Foundations</span></a>
-<a href="components.html"><span class="ic">🧩</span><span class="lbl">Components</span></a>
-<a href="typography.html"><span class="ic">🔤</span><span class="lbl">Typography</span></a>
+<div class="fab-placeholder"><button class="fab small" aria-label="Docs home" onclick="location.href='index.html'"><span class="msr">add</span></button></div>
+<a href="index.html"><span class="ic"><span class="msr">home</span></span><span class="lbl">Home</span></a>
+<a href="getting-started.html" aria-current="page"><span class="ic"><span class="msr">rocket_launch</span></span><span class="lbl">Get started</span></a>
+<a href="foundations.html"><span class="ic"><span class="msr">palette</span></span><span class="lbl">Foundations</span></a>
+<a href="components.html"><span class="ic"><span class="msr">extension</span></span><span class="lbl">Components</span></a>
+<a href="typography.html"><span class="ic"><span class="msr">text_fields</span></span><span class="lbl">Typography</span></a>
 </nav>
 <header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a></header>
 <main id="main"><h1>Getting started</h1>
@@ -29,7 +30,8 @@ npm run dev   # serves demo/index.html with all components</code></pre>
 ort the library entry point (it injects the token stylesheet as a side effect), then use the custom elements:</p>
 <pre><code>import 'm3-expressive-web'; // or ./src/index.ts from the repo
 
-&lt;md-filled-button&gt;Save&lt;/md-filled-button&gt;
+&lt;md-fil
+led-button&gt;Save&lt;/md-filled-button&gt;
 &lt;md-fab-menu&gt;…&lt;/md-fab-menu&gt;</code></pre>
 <p>Or use the primitives directly:</p>
 <pre><code>import '@internal/state-layer.js';

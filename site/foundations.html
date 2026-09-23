@@ -6,22 +6,24 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..900&display=swap">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="ui.css">
-<style>.brand{color:inherit}</style></head><body class="has-rail">
+<style>.brand{color:inherit}</style><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block">
+</head><body class="has-rail">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="rail" aria-label="Site navigation">
-<div class="fab-placeholder"><button class="fab small" aria-label="Docs home" onclick="location.href='index.html'">＋</button></div>
-<a href="index.html"><span class="ic">🏠</span><span class="lbl">Home</span></a>
-<a href="getting-started.html"><span class="ic">🚀</span><span class="lbl">Get started</span></a>
-<a href="foundations.html" aria-current="page"><span class="ic">🎨</span><span class="lbl">Foundations</span></a>
-<a href="components.html"><span class="ic">🧩</span><span class="lbl">Components</span></a>
-<a href="typography.html"><span class="ic">🔤</span><span class="lbl">Typography</span></a>
+<div class="fab-placeholder"><button class="fab small" aria-label="Docs home" onclick="location.href='index.html'"><span class="msr">add</span></button></div>
+<a href="index.html"><span class="ic"><span class="msr">home</span></span><span class="lbl">Home</span></a>
+<a href="getting-started.html"><span class="ic"><span class="msr">rocket_launch</span></span><span class="lbl">Get started</span></a>
+<a href="foundations.html" aria-current="page"><span class="ic"><span class="msr">palette</span></span><span class="lbl">Foundations</span></a>
+<a href="components.html"><span class="ic"><span class="msr">extension</span></span><span class="lbl">Components</span></a>
+<a href="typography.html"><span class="ic"><span class="msr">text_fields</span></span><span class="lbl">Typography</span></a>
 </nav>
 <header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a></header>
 <main id="main"><h1>Foundations</h1>
 <p class="lead">Every value here is canonical — sourced from the M3 spec and the MDC-Android token files that share the Expressive motion scheme.</p>
 <h2 id="color">Color</h2>
 <p>M3 uses color <em>roles</em>, not fixed colors: primary/secondary
-/tertiary/error plus neutral and neutral-variant, each with container pairs, and surface/on-surface roles. This port exposes them as <code>--md-sys-*</code> custom properties (light + dark via <code>prefers-color-scheme</code>). Components consume only roles, so overriding one variable rethemes everything. <a href="https://m3.material.io/styles/color/roles">Spec: color roles</a>.</p>
+/tertiary/error plus neutral and neutral-variant, each with container pairs, and surface/on-surface roles. This port exposes them as <code>--md-sys-*</code> custom properties (light + dark via <code>
+prefers-color-scheme</code>). Components consume only roles, so overriding one variable rethemes everything. <a href="https://m3.material.io/styles/color/roles">Spec: color roles</a>.</p>
 <h2 id="typography">Typography</h2>
 <p>The face for Material 3 Expressive is <strong>Google Sans Flex</strong> (open-sourced 2025) — full guide: <a href="typography.html">Google Sans Flex: axes, weight combos, self-hosting</a>.</p>
 <table><tr><th>Scale</th><th>Sizes</th></tr>
@@ -45,7 +47,8 @@
 <table><t
 r><th>Token</th><th>Damping</th><th>Stiffness</th><th>~Settle</th></tr>
 <tr><td>fast-spatial</td><td>0.90</td><td>1400</td><td>0.233s</td></tr>
-<tr><td>fast-effects</td><td>1.00</td><td>3800</td><td>0.167s</td></tr>
+<tr><td>fast-effects</td><td>1.00</td><td>3800</td><td
+>0.167s</td></tr>
 <tr><td>default-spatial</td><td>0.90</td><td>700</td><td>0.317s</td></tr>
 <tr><td>default-effects</td><td>1.00</td><td>1600</td><td>0.246s</td></tr>
 <tr><td>slow-spatial</td><td>0.90</td><td>300</td><td>0.487s</td></tr>
@@ -62,8 +65,25 @@ r><th>Token</th><th>Damping</th><th>Stiffness</th><th>~Settle</th></tr>
 <h2 id="icons">Icons</h2>
 <p>M3 pairs fill
 ed and outlined icon families. Use Material Symbols with the M3 defaults (24dp, optical sizing on). <a href="https://m3.material.io/styles/icons/overview">Spec: icons</a></p>
-<h2 id="theming">Theming / configuration</h2>
-<p>Two tiers: <code>--md-sys-*</code> (system, role level) and <code>--md-comp-*</code> (component level, mapped from sys). Configure a component by overriding its comp tokens; retheme an app by overriding sys tokens. See <a href="getting-started.html">Get started</a>.</p></main>
+<h2 id="theming">Themi
+ng / configuration</h2>
+<p>Two tiers: <code>--md-sys-*</code> (system, role level) and <code>--md-comp-*</code> (component level, mapped from sys). Configure a component by overriding its comp tokens; retheme an app by overriding sys tokens. See <a href="getting-started.html">Get started</a>.</p><section class="comp" id="icons" data-search>
+<h3>Icons (Material Symbols) <a class="pill ported" href="#icons">in use</a></h3>
+<p><strong>About.</strong> Material Symbols is the Material 3 icon system — a variable font where every icon is a glyph with four variable axes. This site uses it for every icon on every page (no emoji anywhere).</p>
+<p><strong>Variable axes.</strong> FILL 0–1 · wght 100–700 · GRAD -50–200 · opsz 20–48.</p>
+<p><strong>Live demo.</strong></p>
+<div class="demo" style="gap:20px;flex-wrap:wrap"><span class="msr" style="font-size:32px">home</span><span class="msr" style="font-size:32px">rocket_launch</span><span class="msr" style="font-size:32px">palette</span><span class="msr" style="font-size:32px">extension</span><span class="msr" style="font-size:32px">text_fields</span><span class="msr" style="font-size:32px">search</span><span class="msr" style="font-size:32px">notifications</span><span class="msr" style="font-size:32px">favorite</span><span class="msr" style="font-size:32px">settings</span><span class="msr" style="font-size:32px">add</span></div>
+<div class="demo" style="gap:20px;flex-wrap:wrap"><span class="msr" style="font-size:32px;font-variation-settings:'FILL' 1,'wght' 700,'GRAD' 200,'opsz' 40">home</span><span class="msr" style="font-size:32px;font-variation-settings:'FILL' 1,'wght' 700,'GRAD' 200,'opsz' 40">favorite</span><span class="msr" style="font-size:32px;font-variation-settings:'FILL' 1,'wght' 700,'GRAD' 200,'opsz' 40">settings</span></div>
+<p><small>Top: default instance (FILL 0, wght 400, GRAD 0, opsz 24). Bottom: FILL 1, wght 700, GRAD 200, opsz 40.</small></p>
+<p><strong>How to use.</strong></p>
+<pre><code>&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+&lt;span class="material-symbols-rounded">home&lt;/span></code></pre>
+<p><strong>How to configure.</strong></p>
+<table><tr><td><code>font-variation-settings: 'FILL' 1</code></td><td>Filled style</td></tr><tr><td><code>font-variation-settings: 'wght' 700</code></td><td>Bold icon</td></tr><tr><td><code>font-variation-settings: 'GRAD' -25</code></td><td>Lower emphasis on dark backgrounds</td></tr><tr><td><code>font-variation-settings: 'opsz' 48</code></td><td>Optical size for large displays</td></tr></table>
+<p><strong>Where to get.</strong> <a href="https://fonts.google.com/icons">fonts.google.com/icons</a> · <a href="https://fonts.google.com/knowledge/guides/material_symbols_style_layers">style layers guide</a>.</p>
+</section>
+
+</main>
 <footer><p>A community port of Material 3 Expressive for the web — exact spec values only.</p>
 <p><a href="https://github.com/lobsterbs/m3-expressive-web">GitHub</a><a href="https://m3.material.io">Material 3 spec</a><a href="https://github.com/material-components/material-components-android/blob/master/docs/theming/Motion.md">MDC-Android motion tokens</a></p>
 </footer><script src="main.js"></script><script defer src="ui.js"></script>

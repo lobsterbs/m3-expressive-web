@@ -5,15 +5,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@14..48,100..900&display=swap">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="ui.css"></head><body class="has-rail">
+<link rel="stylesheet" href="ui.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block">
+</head><body class="has-rail">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="rail" aria-label="Site navigation">
-<div class="fab-placeholder"><button class="fab small" aria-label="Docs home" onclick="location.href='index.html'">＋</button></div>
-<a href="index.html" aria-current="page"><span class="ic">🏠</span><span class="lbl">Home</span></a>
-<a href="getting-started.html"><span class="ic">🚀</span><span class="lbl">Get started</span></a>
-<a href="foundations.html"><span class="ic">🎨</span><span class="lbl">Foundations</span></a>
-<a href="components.html"><span class="ic">🧩</span><span class="lbl">Components</span></a>
-<a href="typography.html"><span class="ic">🔤</span><span class="lbl">Typography</span></a>
+<div class="fab-placeholder"><button class="fab small" aria-label="Docs home" onclick="location.href='index.html'"><span class="msr">add</span></button></div>
+<a href="index.html" aria-current="page"><span class="ic"><span class="msr">home</span></span><span class="lbl">Home</span></a>
+<a href="getting-started.html"><span class="ic"><span class="msr">rocket_launch</span></span><span class="lbl">Get started</span></a>
+<a href="foundations.html"><span class="ic"><span class="msr">palette</span></span><span class="lbl">Foundations</span></a>
+<a href="components.html"><span class="ic"><span class="msr">extension</span></span><span class="lbl">Components</span></a>
+<a href="typography.html"><span class="ic"><span class="msr">text_fields</span></span><span class="lbl">Typography</span></a>
 </nav>
 <header class="topbar"><a class="brand" href="index.html">m3-expressive-web</a></header>
 <main id="main"><section class="hero">
@@ -21,7 +22,8 @@
 <h1>Material 3 Expressive, finally on the web.</h1>
 <p class="lead">Google never shipped the Expressive update to Material Web Components. This port brings the new motion scheme, shape morphing, and expressive components to the web — with <strong>exact values from the canonical token sources</strong>, never invented ones.</p>
 <div class="badges">
-<img src="https://img.shields.io/github/stars/lobsterbs/m3-expressive-web?style=flat-square&logo=github&label=stars" alt="GitHub stars">
+<img src="https://img.shields.io/github/stars/lobsterbs/m3-expressive-web?style=fl
+at-square&logo=github&label=stars" alt="GitHub stars">
 <img src="https://img.shields.io/github/forks/lobsterbs/m3-expressive-web?style=flat-square&logo=github&label=forks" alt="GitHub forks">
 <img src="https://img.shields.io/github/last-commit/lobsterbs/m3-expressive-web?style=flat-square" alt="Last commit">
 <img src="https://img.shields.io/badge/spec-exact%20values-6750A4?style=flat-square" alt="Exact spec values">
@@ -40,9 +42,11 @@ arted</button></p>
 <div class="card" data-search><h3><a href="foundations.html#motion">Motion</a></h3><p>The Expressive spring scheme — exact damping &amp; stiffness, as CSS <code>linear()</code> curves.</p></div>
 <div class="card" data-search><h3><a href="foundations.html#elevation">Elevation</a></h3><p>Levels 0–5 (0/1/3/6/8/12dp) and surface tint.</p></div>
 <div class="card" data-search><h3><a href="foundations.html#state-layers">State layers</a></h3><p>Hover 8%, focus 10%, pressed 10%, dragged 16%.</p></div>
+<div class="card" data-search><h3><a href="foundations.html#icons">Icons</a></h3><p>Material Symbols — the variable icon font with FILL, weight, grade, and optical size axes.</p></div>
 </div>
-<h2>All 33 components</h2>
-<p><label><input class="search" type="search" placeholder="Search components…" aria-label="Search components"></label></p>
+<h2>All 36 components</h2>
+<p><label><input class="search" type="search" placeh
+older="Search components…" aria-label="Search components"></label></p>
 <div class="grid"><div class="comp" data-search>
 <h3><a href="components.html#common-buttons">Common buttons</a></h3>
 <p>The primary M3 action component: five variants — filled, filled tonal, outlined, elevated, and text — with expressive state layers, ripple, and FAST-token spring motion on press.</p>
@@ -73,7 +77,8 @@ l/default/large) plus an extended variant.</p>
 <p>A row of connected segments for selecting one (or more) options from a compact set; the connected twin of button group.</p>
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
-<h3><a href="components.html#chips">Chips (assist / filter / input)</a></h3>
+<h
+3><a href="components.html#chips">Chips (assist / filter / input)</a></h3>
 <p>Compact elements representing inputs, attributes, or actions: assist, filter, input (with suggestion), and (Expressive) elevated filter chips with dynamic height.</p>
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
@@ -106,7 +111,8 @@ tion and dismiss icon; the mobile pattern for lightweight feedback.</p>
 <p>Small dynamic indicator for status, count, or presence, docked to icons/navigation.</p>
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
-<h3><a href="components.html#bottom-sheet">Bottom sheet</a></h3>
+<h3><a href="components.html#bottom-sheet">Bottom sheet</a></h3
+>
 <p>Anchored-bottom surface with three variants (modal, standard, expanded) using drag-to-resize gestures.</p>
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
@@ -139,7 +145,8 @@ ntent, avatars, and expressive leading icons.</p>
 <p>Navigation-bar pattern for tablet/expanded screens; menu icon toggles to a navigation drawer.</p>
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
-<h3><a href="components.html#navigation-drawer">Navigation drawer</a></h3>
+<h3><a href="components.html#navigation-drawer">Navigation d
+rawer</a></h3>
 <p>Side sheet with navigation items (and optional headers/badges); modal variant has scrim.</p>
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
@@ -172,7 +179,8 @@ ace; Expressive adds exposed-dropdown menus (dock to a field) and expressive ite
 <p>Filled and outlined inputs with floating labels, supporting text, and trailing icons.</p>
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
-<h3><a href="components.html#date-pickers">Date & time pickers</a></h3>
+<h3><a href="components.html#date-pickers">Date 
+& time pickers</a></h3>
 <p>Calendar and clock selection surfaces in dialog or embedded form.</p>
 <span class="pill roadmap">roadmap</span></div>
 <div class="comp" data-search>
